@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виктор готовит🫶</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Подготовка к <span>ОГЭ</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="home-link">Главная</a></li>
+                        <li><a href="#tasks" class="tasks-link">Домашка</a></li>
+                        <li><a href="theoriya/theory.html" class="theory-link">Теория</a></li>
+                        <li><a href="testch/test.html" class="tests-link">Тесты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container">
+            <h1>Подготовка к ОГЭ по математике</h1>
+            <p>Полный курс подготовки к основному государственному экзамену по математике. Теория, практика, разбор заданий и пробные тесты.</p>
+            <button class="cta-button" id="start-learning">мяу</button>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Наши преимущества</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Полный курс теории и шпор</h3>
+                    <p>Все необходимые темы для успешной сдачи экзамена, объясненные простым и понятным языком.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Практические задания</h3>
+                    <p>База заданий с разбором решений и ответами для самостоятельной проверки.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Пробные тесты</h3>
+                    <p>Тесты в формате ОГЭ с автоматической проверкой и анализом ошибок.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Задания -->
+    <section class="tasks" id="tasks">
+        <div class="container">
+            <h1 class="section-title">Домашка</h1>
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-button active" data-category="Na">Настя</button>
+                    <button class="tab-button" data-category="Va">Валя</button>
+                    <button class="tab-button" data-category="Ar">Артем</button>
+                </div>
+                <div class="tab-content">
+                    <div class="task-list" id="task-list">
+                        <!-- Задания будут загружены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О проекте</h3>
+                    <p>Сайт для подготовки к ОГЭ по математике. Все материалы соответствуют требованиям ФИПИ. Задания взяты с официальных сайтов РЕШУ ОГЭ и Открытый банк ФИПИ</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Разделы</h3>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#tasks">Домашка</a></li>
+                        <li><a href="theoriya/theory.html">Теория</a></li>
+                        <li><a href="testch/test.html">Тесты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><a href="mailto:info@oge-math.ru">viktorivanov06@yandex.ru</a></li>
+                        <li><a href="https://web.telegram.org/k/" target="_blank">tg: @elintniyluxalgoSM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Подготовка к ОГЭ по математике. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Страница задачи -->
+    <section class="task-page" id="task-page">
+        <div class="container">
+            <div class="task-container">
+                <div class="task-header">
+                    <h2 id="task-title">Задача №1</h2>
+                    <div class="task-difficulty easy" id="task-difficulty">Легкая</div>
+                </div>
+                <div class="task-content" id="task-content">
+                    <p>Текст задачи будет загружен здесь...</p>
+                </div>
+                <div class="solution" id="solution">
+                    <h3>Решение</h3>
+                    <p>Подробное решение задачи будет показано здесь...</p>
+                </div>
+                <div class="task-actions">
+                    <button class="back-button" id="back-button">Назад к заданиям</button>
+                    <button class="solution-button" id="solution-button">Подсказка</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
