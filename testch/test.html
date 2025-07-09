@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тесты для подготовки к ОГЭ по математике</title>
+    <link rel="stylesheet" href="stylete.css">
+</head>
+<body>
+    <header>
+        <h1>Тесты для подготовки к ОГЭ по математике</h1>
+        <p>Практикуйтесь с реальными вариантами заданий по алгебре, геометрии и теории вероятностей</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <button class="nav-btn" onclick="location.href='../index.html'">Главная</button>
+            <button class="nav-btn" onclick="location.href='../theoriya/theory.html'">Теория</button>
+            <button class="nav-btn active">Тесты</button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Выберите вариант теста</h2>
+            <p>Все варианты соответствуют спецификации ОГЭ и включают задания из реальных экзаменов прошлых лет.</p>
+            
+            <div class="variants-container" id="variants-container">
+                <div class="variant-card">
+                    <h4>Мобильный интернет (1-5 задание)</h4>
+                    <div class="info">Средняя сложность</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(1); return false;">Начать тест</a>
+                </div>
+                
+                <div class="variant-card">
+                    <h4>Печка (1-5 задание)</h4>
+                    <div class="info">Средняя сложность</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(2); return false;">Начать тест</a>
+                </div>
+                
+                <div class="variant-card">
+                    <h4>Участки (1-5 задание)</h4>
+                    <div class="info">Средняя сложность</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(3); return false;">Начать тест</a>
+                </div>
+                
+                <div class="variant-card">
+                    <h4>Листы (1-5 задание)</h4>
+                    <div class="info">Средняя сложность</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(4); return false;">Начать тест</a>
+                </div>
+                <div class="variant-card">
+                    <h4>Станции жд (1-5 задание)</h4>
+                    <div class="info">Средняя сложность</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(5); return false;">Начать тест</a>
+                </div>
+                <div class="variant-card">
+                    <h4>Деревня и ее дороги 😎(1-5 задание)</h4>
+                    <div class="info">Средняя сложность</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(6); return false;">Начать тест</a>
+                </div>
+                <div class="variant-card">
+                    <h4>План квартиры (1-5 задание)</h4>
+                    <div class="info">Средняя сложность</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(7); return false;">Начать тест</a>
+                </div>
+                <div class="variant-card">
+                    <h4>Горные районы (1-5 задание)</h4>
+                    <div class="info">Средняя сложность</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(8); return false;">Начать тест</a>
+                </div>
+                <div class="variant-card">
+                    <h4>ШИНЫ (1-5 задание)</h4>
+                    <div class="info">HARD OGE LEVEL</div>
+                    <div class="tasks"></div>
+                    <a href="#" class="start-btn" onclick="startTest(9); return false;">Начать тест</a>
+                </div>
+            </div>
+            
+            <div id="test-container" class="test-container">
+                <div class="tasks-navigation" id="tasks-nav"></div>
+                <div id="task-container"></div>
+                
+                <div class="navigation">
+                    <button class="nav-btn-test" id="prev-btn">Назад</button>
+                    <button class="nav-btn-test" id="next-btn">Далее</button>
+                </div>
+            </div>
+            
+            <div id="result-container" class="result-container">
+                <h2>Результаты тестирования</h2>
+                <div class="result-score" id="final-score">0</div>
+                <div class="result-text" id="result-text"></div>
+                
+                <div class="progress-bar">
+                    <div class="progress" id="progress-bar" style="width: 0%"></div>
+                </div>
+                
+                <div class="progress-info">
+                    <span>Правильных ответов: <span id="correct-answers">0</span> из <span id="total-tasks">0</span></span>
+                    <span>Набрано баллов: <span id="total-points">0</span> из <span id="max-points">0</span></span>
+                </div>
+                
+                <!-- Добавлен блок с детализацией ответов -->
+                <div class="answers-details">
+                    <h3>Детализация ответов:</h3>
+                    <div id="answers-list"></div>
+                </div>
+                
+                <button class="restart-btn" onclick="restartTest()">Вернуться в меню тестов</button>
+                <button class="review-btn" onclick="reviewAnswers()">Посмотреть вариант</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Тесты для подготовки к ОГЭ по математике</p>
+        <p>Все материалы основаны на реальных вариантах ОГЭ прошлых лет</p>
+    </footer>
+    
+    <script src="test.js"></script>
+</body>
+</html>
