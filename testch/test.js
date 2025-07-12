@@ -575,6 +575,71 @@ const testsData = {
       correct: "B",
     },
   ],
+  10: [
+    {
+      number: 1,
+      points: 1,
+      image: "v10z1.png",
+      options: [
+        { id: "A", text: "13" },
+        { id: "B", text: "14" },
+        { id: "C", text: "15" },
+        { id: "D", text: "12" },
+      ],
+      correct: "A",
+    },
+    {
+      number: 2,
+      points: 1,
+      image: "v10z2.png",
+      options: [
+        { id: "A", text: "70" },
+        { id: "B", text: "71" },
+        { id: "C", text: "72" },
+        { id: "D", text: "73" },
+      ],
+      correct: "B",
+    },
+    {
+      number: 3,
+      points: 1,
+      image: "v10z3.png",
+      options: [
+        { id: "A", text: "53" },
+        {
+          id: "B",
+          text: "57",
+        },
+        { id: "C", text: "61" },
+        { id: "D", text: "58" },
+      ],
+      correct: "D",
+    },
+    {
+      number: 4,
+      points: 1,
+      image: "v10z4.png",
+      options: [
+        { id: "A", text: "105" },
+        { id: "B", text: "110" },
+        { id: "C", text: "115" },
+        { id: "D", text: "95" },
+      ],
+      correct: "A",
+    },
+    {
+      number: 5,
+      points: 1,
+      image: "v10z5.png",
+      options: [
+        { id: "A", text: "84" },
+        { id: "B", text: "85" },
+        { id: "C", text: "86" },
+        { id: "D", text: "87" },
+      ],
+      correct: "C",
+    },
+  ],
 };
 
 let currentTest = 0;
