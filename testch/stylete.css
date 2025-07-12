@@ -371,7 +371,7 @@
                 max-width: 95%;
             }
         }
-        /* Стили для детальных результатов */
+       
         .detailed-results {
             margin-top: 2rem;
             text-align: left;
@@ -429,7 +429,7 @@
             background-color: #d1ecf1;
             color: #0c5460;
         }
-        /* Детализация ответов */
+        
         .answers-details {
             margin-top: 2rem;
             width: 100%;
@@ -514,7 +514,7 @@
             margin-top: 0.5rem;
         }
 
-        /* Цвета для статусов */
+
         .answer-detail.correct {
             border-left: 5px solid #1abc9c;
         }
@@ -555,7 +555,7 @@
                 width: 100%;
             }
         }
-        /* Навигация между заданиями */
+       
         .tasks-navigation {
             display: flex;
             justify-content: center;
@@ -611,7 +611,7 @@
                 font-size: 0.9rem;
             }
         }
-        /* Кнопки в результате */
+
         .result-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -644,7 +644,7 @@
             background-color: #16a085;
         }
 
-        /* Режим просмотра ответов */
+  
         .review-container {
             display: none;
             margin-top: 2rem;
@@ -676,7 +676,7 @@
         .close-review:hover {
             background-color: #c0392b;
         }
-        /* Стили для просмотра ответов */
+     
         .review-answer-info {
             margin-top: 1.5rem;
             padding: 1rem;

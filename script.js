@@ -1,4 +1,3 @@
-// Данные для заданий с фотографиями
 const tasks = [
   {
     id: 1,
@@ -57,8 +56,6 @@ const tasks = [
     solution: "p = то что нужно/все что есть",
   },
 ];
-
-// Элементы DOM
 const startLearningBtn = document.getElementById("start-learning");
 const tabButtons = document.querySelectorAll(".tab-button");
 const taskList = document.getElementById("task-list");
@@ -70,7 +67,6 @@ const taskTitle = document.getElementById("task-title");
 const taskContent = document.getElementById("task-content");
 const taskDifficulty = document.getElementById("task-difficulty");
 
-// Загрузка заданий
 function loadTasks(category = "all") {
   taskList.innerHTML = "";
 
@@ -106,7 +102,6 @@ function loadTasks(category = "all") {
     taskList.appendChild(taskCard);
   });
 
-  // Добавляем обработчики для кнопок "Подробнее"
   document.querySelectorAll(".view-task").forEach((button) => {
     button.addEventListener("click", function () {
       const taskId = parseInt(this.getAttribute("data-id"));
@@ -115,7 +110,6 @@ function loadTasks(category = "all") {
   });
 }
 
-// Показать страницу задачи
 function showTask(id) {
   const task = tasks.find((t) => t.id === id);
   if (!task) return;
@@ -123,7 +117,6 @@ function showTask(id) {
   taskTitle.textContent = task.title;
   taskContent.innerHTML = `<img src="${task.photo}" alt="${task.title}" class="task-full-image">`;
 
-  // Устанавливаем класс сложности
   taskDifficulty.className = "task-difficulty " + task.difficulty;
   taskDifficulty.textContent =
     task.difficulty === "easy"
@@ -132,12 +125,10 @@ function showTask(id) {
       ? "Средняя"
       : "Сложная";
 
-  // Очищаем решение
   solutionDiv.style.display = "none";
   solutionDiv.innerHTML =
     "<h3>Решение</h3><p>" + task.solution.replace(/\n/g, "<br>") + "</p>";
 
-  // Показываем страницу задачи
   document.querySelector(".hero").style.display = "none";
   document.querySelector(".features").style.display = "none";
   document.querySelector(".tasks").style.display = "none";
@@ -145,7 +136,6 @@ function showTask(id) {
   taskPage.style.display = "block";
 }
 
-// Вернуться к списку задач
 function backToTasks() {
   document.querySelector(".hero").style.display = "block";
   document.querySelector(".features").style.display = "block";
@@ -153,13 +143,11 @@ function backToTasks() {
   document.querySelector("footer").style.display = "block";
   taskPage.style.display = "none";
 
-  // Прокрутка к разделу "Домашка"
   setTimeout(() => {
     document.querySelector("#tasks").scrollIntoView({ behavior: "smooth" });
   }, 50);
 }
 
-// Показать/скрыть решение
 function toggleSolution() {
   if (solutionDiv.style.display === "none" || !solutionDiv.style.display) {
     solutionDiv.style.display = "block";
@@ -170,7 +158,6 @@ function toggleSolution() {
   }
 }
 
-// Обработчики событий для вкладок
 tabButtons.forEach((button) => {
   button.addEventListener("click", function () {
     tabButtons.forEach((btn) => btn.classList.remove("active"));
@@ -180,18 +167,14 @@ tabButtons.forEach((button) => {
   });
 });
 
-// Обработчики для страницы задачи
 backButton.addEventListener("click", backToTasks);
 solutionButton.addEventListener("click", toggleSolution);
 
-// Кнопка "Начать обучение"
 startLearningBtn.addEventListener("click", () => {
   alert("мяу");
 });
 
-// Инициализация
 document.addEventListener("DOMContentLoaded", () => {
-  // Активируем первую вкладку и загружаем ее задания
   if (tabButtons.length > 0) {
     tabButtons[0].classList.add("active");
     const category = tabButtons[0].getAttribute("data-category");

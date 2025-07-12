@@ -1,4 +1,3 @@
-// Структура данных для тестов
 const testsData = {
   1: [
     {
@@ -578,18 +577,14 @@ const testsData = {
   ],
 };
 
-// Глобальные переменные
 let currentTest = 0;
 let currentTaskIndex = 0;
 let userAnswers = {};
 
-// Инициализация после загрузки страницы
 document.addEventListener("DOMContentLoaded", function () {
-  // Назначаем обработчик для кнопки "Далее"
   document.getElementById("next-btn").addEventListener("click", nextTask);
 });
 
-// Создать навигацию по заданиям
 function createTasksNavigation() {
   const tasksNav = document.getElementById("tasks-nav");
   tasksNav.innerHTML = "";
@@ -602,12 +597,10 @@ function createTasksNavigation() {
     tab.textContent = i + 1;
     tab.dataset.index = i;
 
-    // Помечаем активный таб
     if (i === currentTaskIndex) {
       tab.classList.add("active");
     }
 
-    // Помечаем отвеченные задания
     if (userAnswers[i] !== undefined) {
       tab.classList.add("answered");
     }
@@ -620,18 +613,15 @@ function createTasksNavigation() {
   }
 }
 
-// Перейти к конкретному заданию
 function goToTask(taskIndex) {
   currentTaskIndex = taskIndex;
   displayTask();
 }
 
-// Функция для отображения задания
 function displayTask() {
   const task = testsData[currentTest][currentTaskIndex];
   const taskContainer = document.getElementById("task-container");
 
-  // Генерация HTML для задания
   taskContainer.innerHTML = `
         <div class="task">
             <div class="task-header">
@@ -661,7 +651,6 @@ function displayTask() {
         </div>
     `;
 
-  // Обновление кнопки "Назад"
   const prevButton = document.getElementById("prev-btn");
   if (currentTaskIndex === 0) {
     prevButton.textContent = "Вернуться";
@@ -671,7 +660,6 @@ function displayTask() {
     prevButton.onclick = prevTask;
   }
 
-  // Обновление кнопки "Далее"
   const nextButton = document.getElementById("next-btn");
   if (currentTaskIndex === testsData[currentTest].length - 1) {
     nextButton.textContent = "Завершить";
@@ -679,7 +667,6 @@ function displayTask() {
     nextButton.textContent = "Далее";
   }
 
-  // Восстановление выбранного ответа
   if (userAnswers[currentTaskIndex]) {
     const options = document.querySelectorAll(".option");
     options.forEach((opt) => {
@@ -689,11 +676,9 @@ function displayTask() {
     });
   }
 
-  // Обновляем навигацию
   createTasksNavigation();
 }
 
-// Начать тест
 function startTest(testNumber) {
   currentTest = testNumber;
   currentTaskIndex = 0;
@@ -706,31 +691,25 @@ function startTest(testNumber) {
   displayTask();
 }
 
-// Выбор варианта ответа
 function selectOption(element, optionId) {
   const options = element.parentElement.querySelectorAll(".option");
   options.forEach((opt) => opt.classList.remove("selected"));
   element.classList.add("selected");
   userAnswers[currentTaskIndex] = optionId;
 
-  // Обновляем навигацию (отмечаем отвеченное задание)
   createTasksNavigation();
 }
 
-// Следующее задание
 function nextTask() {
-  // Если текущее задание последнее, показываем результаты
   if (currentTaskIndex === testsData[currentTest].length - 1) {
     showResults();
     return;
   }
 
-  // Переходим к следующему заданию
   currentTaskIndex++;
   displayTask();
 }
 
-// Предыдущее задание
 function prevTask() {
   if (currentTaskIndex > 0) {
     currentTaskIndex--;
@@ -738,20 +717,17 @@ function prevTask() {
   }
 }
 
-// Вернуться в меню
 function returnToMenu() {
   document.getElementById("test-container").style.display = "none";
   document.getElementById("variants-container").style.display = "grid";
 }
 
-// Показать результаты
 function showResults() {
   const test = testsData[currentTest];
   let correctCount = 0;
   let totalPoints = 0;
   const maxPoints = test.reduce((sum, task) => sum + task.points, 0);
 
-  // Проверяем ответы
   for (let i = 0; i < test.length; i++) {
     if (userAnswers[i] === test[i].correct) {
       correctCount++;
@@ -759,18 +735,15 @@ function showResults() {
     }
   }
 
-  // Обновляем результаты
   document.getElementById("correct-answers").textContent = correctCount;
   document.getElementById("total-tasks").textContent = test.length;
   document.getElementById("total-points").textContent = totalPoints;
   document.getElementById("max-points").textContent = maxPoints;
   document.getElementById("final-score").textContent = totalPoints;
 
-  // Прогресс бар
   const progressPercent = (correctCount / test.length) * 100;
   document.getElementById("progress-bar").style.width = `${progressPercent}%`;
 
-  // Текстовый результат
   const resultText = document.getElementById("result-text");
   if (correctCount === test.length) {
     resultText.textContent = "Отличный результат! Вы готовы к экзамену!";
@@ -783,18 +756,15 @@ function showResults() {
     resultText.style.color = "#e74c3c";
   }
 
-  // Показываем детализацию ответов
   showAnswersDetails(test);
 
-  // Показываем контейнер с результатами
   document.getElementById("test-container").style.display = "none";
   document.getElementById("result-container").style.display = "block";
 }
 
-// Показать детализацию ответов
 function showAnswersDetails(test) {
   const answersList = document.getElementById("answers-list");
-  answersList.innerHTML = ""; // Очищаем предыдущие результаты
+  answersList.innerHTML = "";
 
   for (let i = 0; i < test.length; i++) {
     const task = test[i];
@@ -806,7 +776,6 @@ function showAnswersDetails(test) {
       isCorrect ? "correct" : "incorrect"
     }`;
 
-    // Если есть изображение, показываем миниатюру
     let imageHtml = "";
     if (task.image) {
       imageHtml = `<div class="answer-image"><img src="${task.image}" alt="Задание ${task.number}"></div>`;
@@ -836,13 +805,11 @@ function showAnswersDetails(test) {
   }
 }
 
-// Начать заново
 function restartTest() {
   document.getElementById("result-container").style.display = "none";
   document.getElementById("variants-container").style.display = "grid";
 }
 
-// Просмотреть ответы
 function reviewAnswers() {
   document.getElementById("result-container").style.display = "none";
 
@@ -864,7 +831,6 @@ function reviewAnswers() {
   showReviewTasks();
 }
 
-// Показать задания для просмотра
 function showReviewTasks() {
   const container = document.getElementById("review-tasks-container");
   container.innerHTML = "";
@@ -879,11 +845,10 @@ function showReviewTasks() {
     const taskElement = document.createElement("div");
     taskElement.className = "task review-task";
 
-    // Генерируем варианты ответов с выделением только выбора пользователя
     let optionsHtml = task.options
       .map((opt) => {
         let optionClass = "option";
-        // Выделяем только ответ пользователя
+
         if (opt.id === userAnswer) {
           optionClass += isCorrect ? " correct" : " incorrect";
         }
@@ -925,8 +890,6 @@ function showReviewTasks() {
     container.appendChild(taskElement);
   }
 }
-
-// Закрыть просмотр ответов
 function closeReview() {
   document.getElementById("review-container").remove();
   document.getElementById("result-container").style.display = "block";

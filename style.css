@@ -1,4 +1,4 @@
-/* Общие стили */
+
 * {
     margin: 0;
     padding: 0;
@@ -70,7 +70,7 @@ nav ul li a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Главный баннер */
+
 .hero {
     background-color: #3498db;
     color: white;
@@ -111,7 +111,7 @@ nav ul li a:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Преимущества */
+
 .features {
     padding: 60px 0;
 }
@@ -163,7 +163,6 @@ nav ul li a:hover {
     text-align: center;
 }
 
-/* Задания */
 .tasks {
     background-color: #34495e;
     padding: 60px 0;
@@ -268,7 +267,7 @@ nav ul li a:hover {
     color: white;
 }
 
-/* Контейнер для миниатюр */
+
 .task-image-container {
     height: 180px;
     overflow: hidden;
@@ -288,7 +287,6 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-/* Кнопка "Подробнее" */
 .view-task {
     background-color: #3498db;
     color: white;
@@ -310,7 +308,6 @@ nav ul li a:hover {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Подвал */
 footer {
     background-color: #3498db;
     color: white;
@@ -371,7 +368,6 @@ footer {
     font-size: 16px;
 }
 
-/* Страница задачи */
 .task-page {
     display: none;
     padding: 40px 0;
@@ -479,7 +475,7 @@ footer {
     font-size: 22px;
 }
 
-/* Адаптивность */
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
