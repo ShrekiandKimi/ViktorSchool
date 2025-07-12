@@ -640,6 +640,69 @@ const testsData = {
       correct: "C",
     },
   ],
+  11: [
+    {
+      number: 1,
+      points: 1,
+      question: "Является ли OD биссектрисой?",
+      image: "v11z1.png",
+      options: [
+        { id: "A", text: "Да" },
+        { id: "B", text: "Нет" },
+      ],
+      correct: "A",
+    },
+    {
+      number: 2,
+      points: 1,
+      image: "v11z2.png",
+      question: "Вертикальные ли углы?",
+      options: [
+        { id: "A", text: "Да" },
+        { id: "B", text: "Нет" },
+      ],
+      correct: "A",
+    },
+    {
+      number: 3,
+      points: 1,
+      question: "Что за вертикальные углы?",
+      options: [
+        { id: "A", text: "уголочки друг на против друга" },
+        {
+          id: "B",
+          text: "Это два рядом стоящих угла , они равны",
+        },
+        {
+          id: "C",
+          text: "Это противоположно лежащие уголочки, возникшие при пересечении двух прямых",
+        },
+        {
+          id: "D",
+          text: "Это противоположно лежащие равные, уголочки, возникшие при пересечении двух прямых",
+        },
+      ],
+      correct: "D",
+    },
+    {
+      number: 4,
+      points: 1,
+      image: "v11z3.png",
+      question:
+        "Какие углы являются накрест лежащие? В ответ указать все цифры по возврастанию",
+      inputType: true,
+      correct: "3456",
+    },
+    {
+      number: 5,
+      points: 1,
+      image: "v11z3.png",
+      inputType: true,
+      question:
+        "Какие углы являются соответственными? В ответ указать все цифры по возврастанию",
+      correct: "12345678",
+    },
+  ],
 };
 
 let currentTest = 0;
@@ -687,35 +750,56 @@ function displayTask() {
   const task = testsData[currentTest][currentTaskIndex];
   const taskContainer = document.getElementById("task-container");
 
+  let answerSection = "";
+
+  if (task.inputType) {
+    // Поле ввода для ручного ответа
+    answerSection = `
+      <div class="input-answer">
+        <label for="answer-input">Ваш ответ:</label>
+        <input type="text" id="answer-input" class="answer-input" 
+               value="${userAnswers[currentTaskIndex] || ""}" 
+               oninput="handleInputAnswer(this.value)">
+      </div>
+    `;
+  } else {
+    // Стандартные варианты ответов
+    answerSection = task.options
+      .map(
+        (opt) => `
+      <div class="option" onclick="selectOption(this, '${opt.id}')">
+        ${opt.id}) ${opt.text}
+      </div>
+    `
+      )
+      .join("");
+  }
+
   taskContainer.innerHTML = `
-        <div class="task">
-            <div class="task-header">
-                <div class="task-number">${task.number}</div>
-                <div class="task-points">${task.points} балл${
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">${task.number}</div>
+        <div class="task-points">${task.points} балл${
     task.points > 1 ? "а" : ""
   }</div>
-            </div>
-            <div class="task-question">
-                ${
-                  task.image
-                    ? `<img src="${task.image}" alt="Задание ${task.number}" class="task-image">`
-                    : `<p>${task.question}</p>`
-                }
-            </div>
-            <div class="options">
-                ${task.options
-                  .map(
-                    (opt) => `
-                    <div class="option" onclick="selectOption(this, '${opt.id}')">
-                        ${opt.id}) ${opt.text}
-                    </div>
-                `
-                  )
-                  .join("")}
-            </div>
-        </div>
-    `;
-
+      </div>
+      <div class="task-question">
+        ${
+          task.question
+            ? `<div class="question-text">${task.question}</div>`
+            : ""
+        }
+        ${
+          task.image
+            ? `<img src="${task.image}" alt="Задание ${task.number}" class="task-image">`
+            : ""
+        }
+      </div>
+      <div class="options">
+        ${answerSection}
+      </div>
+    </div>
+  `;
   const prevButton = document.getElementById("prev-btn");
   if (currentTaskIndex === 0) {
     prevButton.textContent = "Вернуться";
@@ -810,16 +894,6 @@ function showResults() {
   document.getElementById("progress-bar").style.width = `${progressPercent}%`;
 
   const resultText = document.getElementById("result-text");
-  if (correctCount === test.length) {
-    resultText.textContent = "Отличный результат! Вы готовы к экзамену!";
-    resultText.style.color = "#1abc9c";
-  } else if (correctCount >= test.length * 0.7) {
-    resultText.textContent = "Хороший результат! Продолжайте тренироваться!";
-    resultText.style.color = "#3498db";
-  } else {
-    resultText.textContent = "Попробуйте еще раз! Обратите внимание на теорию.";
-    resultText.style.color = "#e74c3c";
-  }
 
   showAnswersDetails(test);
 
@@ -833,8 +907,16 @@ function showAnswersDetails(test) {
 
   for (let i = 0; i < test.length; i++) {
     const task = test[i];
-    const userAnswer = userAnswers[i] || "—";
-    const isCorrect = userAnswer === task.correct;
+    let userAnswer = userAnswers[i] || "—";
+    let isCorrect = false;
+
+    if (task.inputType) {
+      const normalizedUser = userAnswer.toString().trim().toLowerCase();
+      const normalizedCorrect = task.correct.toString().trim().toLowerCase();
+      isCorrect = normalizedUser === normalizedCorrect;
+    } else {
+      isCorrect = userAnswer === task.correct;
+    }
 
     const answerElement = document.createElement("div");
     answerElement.className = `answer-detail ${
@@ -846,6 +928,33 @@ function showAnswersDetails(test) {
       imageHtml = `<div class="answer-image"><img src="${task.image}" alt="Задание ${task.number}"></div>`;
     }
 
+    // Для заданий с вводом добавляем специальную разметку
+    const answerComparison = task.inputType
+      ? `
+        <div class="answer-comparison">
+          <div class="answer-user">
+            <span>Ваш ответ:</span>
+            <span class="user-answer">${userAnswer}</span>
+          </div>
+          <div class="answer-correct">
+            <span>Правильный ответ:</span>
+            <span class="correct-answer">${task.correct}</span>
+          </div>
+        </div>
+      `
+      : `
+        <div class="answer-comparison">
+          <div class="answer-user">
+            <span>Ваш ответ:</span>
+            <span class="user-answer">${userAnswer}</span>
+          </div>
+          <div class="answer-correct">
+            <span>Правильный ответ:</span>
+            <span class="correct-answer">${task.correct}</span>
+          </div>
+        </div>
+      `;
+
     answerElement.innerHTML = `
       <div class="answer-header">
         <div class="answer-number">Задание ${task.number}</div>
@@ -853,17 +962,11 @@ function showAnswersDetails(test) {
           isCorrect ? "✓ Правильно" : "✗ Неправильно"
         }</div>
       </div>
+      ${
+        task.question ? `<div class="question-text">${task.question}</div>` : ""
+      }
       ${imageHtml}
-      <div class="answer-comparison">
-        <div class="answer-user">
-          <span>Ваш ответ:</span>
-          <span class="user-answer">${userAnswer}</span>
-        </div>
-        <div class="answer-correct">
-          <span>Правильный ответ:</span>
-          <span class="correct-answer">${task.correct}</span>
-        </div>
-      </div>
+      ${answerComparison}
     `;
 
     answersList.appendChild(answerElement);
@@ -904,22 +1007,41 @@ function showReviewTasks() {
 
   for (let i = 0; i < test.length; i++) {
     const task = test[i];
-    const userAnswer = userAnswers[i] || "—";
-    const isCorrect = userAnswer === task.correct;
+    let userAnswer = userAnswers[i] || "—";
+    let isCorrect = false;
+
+    // Проверка правильности ответа
+    if (task.inputType) {
+      const normalizedUser = userAnswer.toString().trim().toLowerCase();
+      const normalizedCorrect = task.correct.toString().trim().toLowerCase();
+      isCorrect = normalizedUser === normalizedCorrect;
+    } else {
+      isCorrect = userAnswer === task.correct;
+    }
 
     const taskElement = document.createElement("div");
     taskElement.className = "task review-task";
 
-    let optionsHtml = task.options
-      .map((opt) => {
-        let optionClass = "option";
-
-        if (opt.id === userAnswer) {
-          optionClass += isCorrect ? " correct" : " incorrect";
-        }
-        return `<div class="${optionClass}">${opt.id}) ${opt.text}</div>`;
-      })
-      .join("");
+    let optionsHtml = "";
+    if (task.inputType) {
+      // Для заданий с вводом ответа
+      optionsHtml = `
+        <div class="input-answer-review ${isCorrect ? "correct" : "incorrect"}">
+          <span>Ваш ответ: ${userAnswer}</span>
+        </div>
+      `;
+    } else {
+      // Для заданий с выбором ответа
+      optionsHtml = task.options
+        .map((opt) => {
+          let optionClass = "option";
+          if (opt.id === userAnswer) {
+            optionClass += isCorrect ? " correct" : " incorrect";
+          }
+          return `<div class="${optionClass}">${opt.id}) ${opt.text}</div>`;
+        })
+        .join("");
+    }
 
     taskElement.innerHTML = `
       <div class="task-header">
@@ -930,22 +1052,26 @@ function showReviewTasks() {
       </div>
       <div class="task-question">
         ${
+          task.question
+            ? `<div class="question-text">${task.question}</div>`
+            : ""
+        }
+        ${
           task.image
             ? `<img src="${task.image}" alt="Задание ${task.number}" class="task-image">`
-            : `<p>${task.question}</p>`
+            : ""
         }
       </div>
       <div class="options">
         ${optionsHtml}
       </div>
       <div class="review-answer-info">
-        
         ${
           !isCorrect
             ? `
-        <div class="correct-answer-review">
-          <strong>Правильный ответ: ${task.correct} </strong>
-        </div>
+          <div class="correct-answer-review">
+            <strong>Правильный ответ: ${task.correct}</strong>
+          </div>
         `
             : ""
         }
@@ -958,4 +1084,9 @@ function showReviewTasks() {
 function closeReview() {
   document.getElementById("review-container").remove();
   document.getElementById("result-container").style.display = "block";
+}
+
+function handleInputAnswer(value) {
+  userAnswers[currentTaskIndex] = value;
+  createTasksNavigation();
 }
