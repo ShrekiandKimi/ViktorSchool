@@ -1070,7 +1070,7 @@ function showReviewTasks() {
           !isCorrect
             ? `
           <div class="correct-answer-review">
-            <strong>Правильный ответ: ${task.correct}</strong>
+            Правильный ответ: ${task.correct}
           </div>
         `
             : ""
