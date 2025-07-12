@@ -959,7 +959,7 @@ function showAnswersDetails(test) {
       <div class="answer-header">
         <div class="answer-number">Задание ${task.number}</div>
         <div class="answer-status">${
-          isCorrect ? "✓ Правильно" : "✗ Неправильно"
+          isCorrect ? "Правильно" : "Неправильно"
         }</div>
       </div>
       ${

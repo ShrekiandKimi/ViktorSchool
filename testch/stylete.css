@@ -274,7 +274,7 @@
         }
         
         .result-score {
-            font-size: 4rem;
+            font-size: 2rem;
             color: #3498db;
             margin: 1rem 0;
             font-weight: bold;
@@ -468,7 +468,7 @@
         .answer-status {
             font-weight: bold;
             padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+            border-radius: 10px;
         }
 
         .answer-image {
