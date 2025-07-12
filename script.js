@@ -1,7 +1,7 @@
 const tasks = [
   {
     id: 1,
-    title: "Найти значение выражения",
+    title: "Задача по геометрии",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa.png",
@@ -37,6 +37,7 @@ const tasks = [
     solution:
       "1) Биссектриса делит угол пополам \n 2) Сумма углов в ЛЮБОМ треугольнике 180 градусов.",
   },
+
   {
     id: 5,
     title: "Задача на теорему Пифагора",
@@ -54,6 +55,26 @@ const tasks = [
     thumbnail: "dzAr2.png",
     photo: "dzAr2.png",
     solution: "p = то что нужно/все что есть",
+  },
+  {
+    id: 7,
+    title: "Задача по геометрии",
+    category: "Na",
+    difficulty: "easy",
+    thumbnail: "dzNa3.png",
+    photo: "dzNa3.png",
+    solution:
+      "1) Зайди в теорию \n 2) Вертикальные уголочки равны \n 3) Углы по одну сторону от прямой = 180 градусам",
+  },
+  {
+    id: 8,
+    title: "Задача по геометрии",
+    category: "Na",
+    difficulty: "easy",
+    thumbnail: "dzNa4.png",
+    photo: "dzNa4.png",
+    solution:
+      "1) Накрест лежащие углы равны \n 2) Односторонние углы в сумме дают 180 \n 3) Соответственные углы равны \n 4) Смежные углы равны 180 \n 5) Вертикальные углы равны",
   },
 ];
 const startLearningBtn = document.getElementById("start-learning");
