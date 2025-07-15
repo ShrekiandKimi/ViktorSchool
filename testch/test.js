@@ -1141,3 +1141,50 @@ function handleInputAnswer(value) {
   userAnswers[currentTaskIndex] = value;
   createTasksNavigation();
 }
+// Добавляем в конец test.js
+const imageModal = document.getElementById("image-modal");
+const modalImage = document.getElementById("modal-image");
+const closeModal = document.querySelector(".close-modal");
+
+// Обработчик для открытия модального окна с картинкой
+document.addEventListener("click", function (e) {
+  if (
+    e.target.classList.contains("task-image") ||
+    e.target.classList.contains("answer-image") ||
+    e.target.parentElement.classList.contains("answer-image")
+  ) {
+    // Если кликнули на изображение в детализации ответов
+    if (e.target.tagName === "IMG") {
+      modalImage.src = e.target.src;
+    }
+    // Если кликнули на обертку изображения
+    else if (e.target.classList.contains("answer-image")) {
+      modalImage.src = e.target.querySelector("img").src;
+    }
+
+    imageModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+});
+
+// Закрытие модального окна
+closeModal.addEventListener("click", function () {
+  imageModal.style.display = "none";
+  document.body.style.overflow = "auto";
+});
+
+// Закрытие при клике вне изображения
+imageModal.addEventListener("click", function (e) {
+  if (e.target === imageModal) {
+    imageModal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+});
+
+// Закрытие при нажатии Esc
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && imageModal.style.display === "block") {
+    imageModal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+});

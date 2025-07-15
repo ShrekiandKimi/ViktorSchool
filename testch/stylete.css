@@ -787,4 +787,62 @@
         color: #721c24;
         border: 2px solid #f5c6cb;
         }
-        
+        /* Добавляем в конец stylete.css */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .modal-content {
+            display: block;
+            margin: 0 auto;
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: scaleUp 0.3s;
+            transform-origin: center center;
+        }
+
+        @keyframes scaleUp {
+            from {transform: scale(0.9);}
+            to {transform: scale(1);}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: #bbb;
+        }
+
+        /* Для изображений в тестах */
+        .task-image, .answer-image img {
+            cursor: zoom-in;
+            transition: transform 0.3s;
+        }
+
+        .task-image:hover, .answer-image img:hover {
+            transform: scale(1.02);
+        }
