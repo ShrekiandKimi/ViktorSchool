@@ -703,6 +703,57 @@ const testsData = {
       correct: "12345678",
     },
   ],
+  12: [
+    {
+      number: 1,
+      points: 1,
+      image: "v12z1.png",
+      question: "Если уголочек ACO равен 30 градусам, то уголочек DCO = ",
+      inputType: true,
+      correct: "150",
+    },
+    {
+      number: 2,
+      points: 1,
+      image: "v12z2.png",
+      question: "Уголочек AOB равен 52 градусам, а угол DOC = ",
+      inputType: true,
+      correct: "52",
+    },
+    {
+      number: 3,
+      points: 1,
+      image: "v12z3.png",
+      question: "С каким углом, угол 1 равен как вертикальные ?",
+      inputType: true,
+      correct: "3",
+    },
+    {
+      number: 4,
+      points: 1,
+      image: "v12z3.png",
+      question: "С каким углом, угол 1 равен как соответственные ?",
+      inputType: true,
+      correct: "5",
+    },
+    {
+      number: 4,
+      points: 1,
+      image: "v12z3.png",
+      question: "С каким углом, угол 4 равен как накрест лежащие ?",
+      inputType: true,
+      correct: "6",
+    },
+    {
+      number: 5,
+      points: 1,
+      image: "v12z3.png",
+      question:
+        "Углы 3 и 6, прям как и 4 и 5 являются односторонними углами при двух параллельных прямых и секущей, ЗНАЧИТ в сумме они дают ",
+      inputType: true,
+      correct: "180",
+    },
+  ],
 };
 
 let currentTest = 0;
