@@ -202,3 +202,30 @@ document.addEventListener("DOMContentLoaded", () => {
     loadTasks(category);
   }
 });
+
+const imageModal = document.getElementById("image-modal");
+const modalImage = document.getElementById("modal-image");
+const closeModal = document.querySelector(".close-modal");
+
+document.addEventListener("click", function (e) {
+  if (
+    e.target.classList.contains("task-thumbnail") ||
+    e.target.classList.contains("task-full-image")
+  ) {
+    modalImage.src = e.target.src;
+    imageModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+});
+
+closeModal.addEventListener("click", function () {
+  imageModal.style.display = "none";
+  document.body.style.overflow = "auto";
+});
+
+imageModal.addEventListener("click", function (e) {
+  if (e.target === imageModal) {
+    imageModal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+});
