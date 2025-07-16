@@ -84,7 +84,7 @@ const testsData = {
         { id: "C", text: "32,1" },
         { id: "D", text: "21,2" },
       ],
-      correct: "B",
+      correct: "A",
     },
     {
       number: 3,
