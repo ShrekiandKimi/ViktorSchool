@@ -761,6 +761,9 @@ let currentTaskIndex = 0;
 let userAnswers = {};
 
 document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".category-section").forEach((section) => {
+    section.classList.add("collapsed");
+  });
   document.getElementById("next-btn").addEventListener("click", nextTask);
 });
 
@@ -804,7 +807,6 @@ function displayTask() {
   let answerSection = "";
 
   if (task.inputType) {
-    // Поле ввода для ручного ответа
     answerSection = `
       <div class="input-answer">
         <label for="answer-input">Ваш ответ:</label>
@@ -814,7 +816,6 @@ function displayTask() {
       </div>
     `;
   } else {
-    // Стандартные варианты ответов
     answerSection = task.options
       .map(
         (opt) => `
@@ -883,8 +884,12 @@ function startTest(testNumber) {
   currentTest = testNumber;
   currentTaskIndex = 0;
   userAnswers = {};
-
-  document.getElementById("variants-container").style.display = "none";
+  document
+    .getElementById("text-tasks-container")
+    .closest(".category-section").style.display = "none";
+  document
+    .getElementById("geometry-tasks-container")
+    .closest(".category-section").style.display = "none";
   document.getElementById("test-container").style.display = "block";
   document.getElementById("result-container").style.display = "none";
 
@@ -919,7 +924,12 @@ function prevTask() {
 
 function returnToMenu() {
   document.getElementById("test-container").style.display = "none";
-  document.getElementById("variants-container").style.display = "grid";
+  document
+    .getElementById("text-tasks-container")
+    .closest(".category-section").style.display = "block";
+  document
+    .getElementById("geometry-tasks-container")
+    .closest(".category-section").style.display = "block";
 }
 
 function showResults() {
@@ -979,7 +989,6 @@ function showAnswersDetails(test) {
       imageHtml = `<div class="answer-image"><img src="${task.image}" alt="Задание ${task.number}"></div>`;
     }
 
-    // Для заданий с вводом добавляем специальную разметку
     const answerComparison = task.inputType
       ? `
         <div class="answer-comparison">
@@ -1026,7 +1035,12 @@ function showAnswersDetails(test) {
 
 function restartTest() {
   document.getElementById("result-container").style.display = "none";
-  document.getElementById("variants-container").style.display = "grid";
+  document
+    .getElementById("text-tasks-container")
+    .closest(".category-section").style.display = "block";
+  document
+    .getElementById("geometry-tasks-container")
+    .closest(".category-section").style.display = "block";
 }
 
 function reviewAnswers() {
@@ -1061,7 +1075,6 @@ function showReviewTasks() {
     let userAnswer = userAnswers[i] || "—";
     let isCorrect = false;
 
-    // Проверка правильности ответа
     if (task.inputType) {
       const normalizedUser = userAnswer.toString().trim().toLowerCase();
       const normalizedCorrect = task.correct.toString().trim().toLowerCase();
@@ -1075,14 +1088,12 @@ function showReviewTasks() {
 
     let optionsHtml = "";
     if (task.inputType) {
-      // Для заданий с вводом ответа
       optionsHtml = `
         <div class="input-answer-review ${isCorrect ? "correct" : "incorrect"}">
           <span>Ваш ответ: ${userAnswer}</span>
         </div>
       `;
     } else {
-      // Для заданий с выбором ответа
       optionsHtml = task.options
         .map((opt) => {
           let optionClass = "option";
@@ -1132,6 +1143,7 @@ function showReviewTasks() {
     container.appendChild(taskElement);
   }
 }
+
 function closeReview() {
   document.getElementById("review-container").remove();
   document.getElementById("result-container").style.display = "block";
@@ -1141,24 +1153,20 @@ function handleInputAnswer(value) {
   userAnswers[currentTaskIndex] = value;
   createTasksNavigation();
 }
-// Добавляем в конец test.js
+
 const imageModal = document.getElementById("image-modal");
 const modalImage = document.getElementById("modal-image");
 const closeModal = document.querySelector(".close-modal");
 
-// Обработчик для открытия модального окна с картинкой
 document.addEventListener("click", function (e) {
   if (
     e.target.classList.contains("task-image") ||
     e.target.classList.contains("answer-image") ||
     e.target.parentElement.classList.contains("answer-image")
   ) {
-    // Если кликнули на изображение в детализации ответов
     if (e.target.tagName === "IMG") {
       modalImage.src = e.target.src;
-    }
-    // Если кликнули на обертку изображения
-    else if (e.target.classList.contains("answer-image")) {
+    } else if (e.target.classList.contains("answer-image")) {
       modalImage.src = e.target.querySelector("img").src;
     }
 
@@ -1167,13 +1175,11 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// Закрытие модального окна
 closeModal.addEventListener("click", function () {
   imageModal.style.display = "none";
   document.body.style.overflow = "auto";
 });
 
-// Закрытие при клике вне изображения
 imageModal.addEventListener("click", function (e) {
   if (e.target === imageModal) {
     imageModal.style.display = "none";
@@ -1181,10 +1187,28 @@ imageModal.addEventListener("click", function (e) {
   }
 });
 
-// Закрытие при нажатии Esc
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && imageModal.style.display === "block") {
     imageModal.style.display = "none";
     document.body.style.overflow = "auto";
   }
+});
+
+function toggleCategory(categoryId) {
+  const container = document.getElementById(`${categoryId}-container`);
+  const categorySection = container.closest(".category-section");
+  categorySection.classList.toggle("collapsed");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Инициализация кнопок
+  document.querySelectorAll(".collapse-btn").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const section = this.closest(".category-section");
+      section.classList.toggle("collapsed");
+    });
+  });
+
+  // Остальные обработчики...
 });

@@ -22,84 +22,96 @@
     
     <div class="container">
         <div class="section">
-            <h2>Выберите вариант теста</h2>
+            <h2>Выберите категорию тестов</h2>
             <p>Все варианты соответствуют спецификации ОГЭ и включают задания из реальных экзаменов прошлых лет.</p>
             
-            <div class="variants-container" id="variants-container">
-                <div class="variant-card">
-                    <h4>Мобильный интернет (1-5 задание)</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(1); return false;">Начать тест</a>
+            <!-- Категория 1: Текстовые задачи -->
+            <div class="category-section collapsed">
+                <div class="category-header" onclick="toggleCategory('text-tasks')">
+                    <button class="collapse-btn">▼</button>
+                    <h3>Задания 1-5 (Текстовые задачи)</h3>
                 </div>
-                
-                <div class="variant-card">
-                    <h4>Печка (1-5 задание)</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(2); return false;">Начать тест</a>
+                <div class="variants-container" id="text-tasks-container">
+                    <div class="variant-card">
+                        <h4>Мобильный интернет (1-5 задание)</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(1); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>Печка (1-5 задание)</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(2); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>Участки (1-5 задание)</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(3); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>Листы (1-5 задание)</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(4); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>Станции жд (1-5 задание)</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(5); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>Деревня и ее дороги 😎(1-5 задание)</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(6); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>План квартиры (1-5 задание)</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(7); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>Горные районы (1-5 задание)</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(8); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>ШИНЫ (1-5 задание)</h4>
+                        <div class="info">HARD OGE LEVEL</div>
+                        <a href="#" class="start-btn" onclick="startTest(9); return false;">Начать тест</a>
+                    </div>
                 </div>
-                
-                <div class="variant-card">
-                    <h4>Участки (1-5 задание)</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(3); return false;">Начать тест</a>
+            </div>
+            
+            <!-- Категория 2: Геометрия -->
+            <div class="category-section collapsed">
+                <div class="category-header" onclick="toggleCategory('geometry-tasks')">
+                    <button class="collapse-btn">▼</button>
+                    <h3>Геометрия</h3>
                 </div>
-                
-                <div class="variant-card">
-                    <h4>Листы (1-5 задание)</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(4); return false;">Начать тест</a>
-                </div>
-                <div class="variant-card">
-                    <h4>Станции жд (1-5 задание)</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(5); return false;">Начать тест</a>
-                </div>
-                <div class="variant-card">
-                    <h4>Деревня и ее дороги 😎(1-5 задание)</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(6); return false;">Начать тест</a>
-                </div>
-                <div class="variant-card">
-                    <h4>План квартиры (1-5 задание)</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(7); return false;">Начать тест</a>
-                </div>
-                <div class="variant-card">
-                    <h4>Горные районы (1-5 задание)</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(8); return false;">Начать тест</a>
-                </div>
-                <div class="variant-card">
-                    <h4>ШИНЫ (1-5 задание)</h4>
-                    <div class="info">HARD OGE LEVEL</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(9); return false;">Начать тест</a>
-                </div>
-                <div class="variant-card">
-                    <h4>Геометрия 15 задание - углы</h4>
-                    <div class="info">Средняя сложность</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(10); return false;">Начать тест</a>
-                </div>
-                <div class="variant-card">
-                    <h4>УГЛЫ</h4>
-                    <div class="info">Повторение</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(11); return false;">Начать тест</a>
-                </div>
-                <div class="variant-card">
-                    <h4>Ну да</h4>
-                    <div class="info">ОТВЕТ ПИСАТЬ ТОЛЬКО ЦИФРАМИ</div>
-                    <div class="tasks"></div>
-                    <a href="#" class="start-btn" onclick="startTest(12); return false;">Начать тест</a>
+                <div class="variants-container" id="geometry-tasks-container">
+                    <div class="variant-card">
+                        <h4>Геометрия 15 задание - углы</h4>
+                        <div class="info">Средняя сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(10); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>УГЛЫ</h4>
+                        <div class="info">Повторение</div>
+                        <a href="#" class="start-btn" onclick="startTest(11); return false;">Начать тест</a>
+                    </div>
+                    
+                    <div class="variant-card">
+                        <h4>Ну да</h4>
+                        <div class="info">ОТВЕТ ПИСАТЬ ТОЛЬКО ЦИФРАМИ</div>
+                        <a href="#" class="start-btn" onclick="startTest(12); return false;">Начать тест</a>
+                    </div>
                 </div>
             </div>
             
