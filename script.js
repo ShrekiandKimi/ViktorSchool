@@ -1,7 +1,7 @@
 const tasks = [
   {
     id: 1,
-    title: "Найди все углы: ",
+    title: "Без калькулятора пж! ",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa.png",
@@ -28,12 +28,12 @@ const tasks = [
   },
   {
     id: 4,
-    title: "Задача по геометрии",
+    title: "Без калькулятора пж!",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa2.png",
     photo: "dzNa2.png",
-    solution: "Сумма углов в ЛЮБОМ треугольнике равна 180*",
+    solution: "",
   },
 
   {
@@ -56,25 +56,21 @@ const tasks = [
   },
   {
     id: 7,
-    title:
-      "Распиши по действиям !!! А не на интуицию, чисто чтобы все было по фактам!",
+    title: "Без калькулятора пж!",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa3.png",
     photo: "dzNa3.png",
-    solution:
-      "НАДЕЮСЬ ТЫ НЕ ЗАШЛА В ПОДСКАЗКИ -> 1) ОБЩИЙ ..... 2) ДОП МНОЖ..... 3) СЛОЖ",
+    solution: "",
   },
   {
     id: 8,
-    title:
-      "Угол 2 = 118 градусам. Найди все остальные уголочки! Чтобы все по фактам расписала ",
+    title: "Уравнение ",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa4.png",
     photo: "dzNa4.png",
-    solution:
-      "1) Накрест лежащие углы равны \n 2) Односторонние углы в сумме дают 180 \n 3) Соответственные углы равны \n 4) Смежные углы равны 180 \n 5) Вертикальные углы равны",
+    solution: "Иксы влево числа вправо",
   },
 ];
 const startLearningBtn = document.getElementById("start-learning");
