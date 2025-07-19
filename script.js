@@ -84,6 +84,206 @@ const taskTitle = document.getElementById("task-title");
 const taskContent = document.getElementById("task-content");
 const taskDifficulty = document.getElementById("task-difficulty");
 
+// База данных пользователей
+const usersDatabase = {
+  teacher: {
+    login: "teacher",
+    password: "teacher123",
+    name: "Учитель",
+    role: "teacher",
+  },
+  students: {
+    nastya: {
+      login: "nastya",
+      password: "nastya2024",
+      name: "Настя",
+      role: "student",
+      avatar: "nastya-avatar.jpg",
+    },
+    valya: {
+      login: "valya",
+      password: "valya2024",
+      name: "Валя",
+      role: "student",
+      avatar: "valya-avatar.jpg",
+    },
+    artem: {
+      login: "artem",
+      password: "artem2024",
+      name: "Артем",
+      role: "student",
+      avatar: "artem-avatar.jpg",
+    },
+  },
+};
+
+let currentUser = null;
+let selectedStudent = null;
+
+// Инициализация авторизации
+function initAuthSystem() {
+  // Получаем все элементы
+  const authModal = document.getElementById("auth-modal");
+  const authButton = document.getElementById("auth-button");
+  const closeAuth = document.querySelector(".close-auth");
+  const typeSelectors = document.querySelectorAll(".type-selector");
+
+  // Обработчики для выбора типа пользователя
+  typeSelectors.forEach((selector) => {
+    selector.addEventListener("click", function () {
+      typeSelectors.forEach((s) => s.classList.remove("active"));
+      this.classList.add("active");
+
+      const type = this.dataset.type;
+      document.getElementById("teacher-auth").style.display =
+        type === "teacher" ? "block" : "none";
+      document.getElementById("student-selection").style.display =
+        type === "student" ? "block" : "none";
+      document.getElementById("student-auth").style.display = "none";
+    });
+  });
+
+  // Обработчик для выбора ученика
+  document.querySelectorAll(".student-option").forEach((option) => {
+    option.addEventListener("click", function () {
+      selectedStudent = this.dataset.student;
+      const student = usersDatabase.students[selectedStudent];
+
+      document.getElementById("student-selection").style.display = "none";
+      document.getElementById("student-auth").style.display = "block";
+      document.getElementById("student-name").textContent = student.name;
+      document.getElementById("student-avatar").src = student.avatar;
+    });
+  });
+
+  // Обработчики кнопок "Назад"
+  document.getElementById("back-to-types").addEventListener("click", () => {
+    document.getElementById("student-selection").style.display = "none";
+    document.getElementById("teacher-auth").style.display = "block";
+  });
+
+  document.getElementById("back-to-students").addEventListener("click", () => {
+    document.getElementById("student-auth").style.display = "none";
+    document.getElementById("student-selection").style.display = "block";
+  });
+
+  // Обработчик входа для учителя
+  document.getElementById("teacher-submit").addEventListener("click", () => {
+    const login = document.getElementById("teacher-login").value;
+    const password = document.getElementById("teacher-password").value;
+
+    if (
+      login === usersDatabase.teacher.login &&
+      password === usersDatabase.teacher.password
+    ) {
+      currentUser = usersDatabase.teacher;
+      completeAuth();
+    } else {
+      alert("Неверный логин или пароль");
+    }
+  });
+
+  // Обработчик входа для учеников
+  document.getElementById("student-submit").addEventListener("click", () => {
+    const password = document.getElementById("student-password").value;
+    const student = usersDatabase.students[selectedStudent];
+
+    if (password === student.password) {
+      currentUser = student;
+      completeAuth();
+    } else {
+      document.getElementById("student-error").textContent = "Неверный пароль";
+    }
+  });
+
+  // Открытие модального окна
+  authButton.addEventListener("click", () => {
+    authModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+    resetAuthForms();
+  });
+
+  // Закрытие модального окна
+  closeAuth.addEventListener("click", closeAuthModal);
+  window.addEventListener("click", (e) => {
+    if (e.target === authModal) closeAuthModal();
+  });
+
+  // Проверка авторизации при загрузке
+  checkAuthStatus();
+}
+
+// Завершение авторизации
+function completeAuth() {
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  updateAuthUI();
+  closeAuthModal();
+
+  // Можно добавить приветствие
+}
+
+// Обновление интерфейса после авторизации
+function updateAuthUI() {
+  const authButton = document.getElementById("auth-button");
+  const userContainer = document.createElement("div");
+  userContainer.className = "user-info";
+
+  const userName = document.createElement("span");
+  userName.className = "user-name";
+  userName.textContent = currentUser.name;
+  userContainer.appendChild(userName);
+
+  const logoutButton = document.createElement("button");
+  logoutButton.className = "logout-button";
+  logoutButton.textContent = "Выйти";
+  logoutButton.addEventListener("click", logoutUser);
+  userContainer.appendChild(logoutButton);
+
+  authButton.replaceWith(userContainer);
+}
+
+// Выход из системы
+function logoutUser() {
+  currentUser = null;
+  localStorage.removeItem("currentUser");
+  location.reload();
+}
+
+// Проверка статуса авторизации
+function checkAuthStatus() {
+  const savedUser = localStorage.getItem("currentUser");
+  if (savedUser) {
+    currentUser = JSON.parse(savedUser);
+    updateAuthUI();
+  }
+}
+
+// Закрытие модального окна
+function closeAuthModal() {
+  document.getElementById("auth-modal").style.display = "none";
+  document.body.style.overflow = "auto";
+  resetAuthForms();
+}
+
+// Сброс форм авторизации
+function resetAuthForms() {
+  document.getElementById("teacher-login").value = "";
+  document.getElementById("teacher-password").value = "";
+  document.getElementById("student-password").value = "";
+  document.getElementById("student-error").textContent = "";
+  document.getElementById("teacher-auth").style.display = "block";
+  document.getElementById("student-selection").style.display = "none";
+  document.getElementById("student-auth").style.display = "none";
+  document
+    .querySelector(".type-selector[data-type='teacher']")
+    .classList.add("active");
+  document
+    .querySelector(".type-selector[data-type='student']")
+    .classList.remove("active");
+}
+
+// Инициализация при загрузке
+document.addEventListener("DOMContentLoaded", initAuthSystem);
 function loadTasks(category = "all") {
   taskList.innerHTML = "";
 

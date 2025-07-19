@@ -21,6 +21,7 @@
                         <li><a href="testch/test.html" class="tests-link">Тесты</a></li>
                     </ul>
                 </nav>
+                <button class="auth-button" id="auth-button">Войти</button>
             </div>
         </div>
     </header>
@@ -127,6 +128,66 @@
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="modal-image">
     </div>
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-content">
+            <span class="close-auth">&times;</span>
+            <h2>Авторизация</h2>
+            
+            <!-- Выбор типа пользователя -->
+            <div id="user-type-selection">
+                <button class="type-selector active" data-type="teacher">Учитель</button>
+                <button class="type-selector" data-type="student">Ученики</button>
+            </div>
+
+            <!-- Форма для учителя -->
+            <div id="teacher-auth" class="auth-form">
+                <div class="form-group">
+                    <label for="teacher-login">Логин:</label>
+                    <input type="text" id="teacher-login" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="teacher-password">Пароль:</label>
+                    <input type="password" id="teacher-password" class="form-input">
+                </div>
+                <button class="auth-submit" id="teacher-submit">Войти</button>
+            </div>
+
+            <!-- Выбор ученика -->
+            <div id="student-selection" class="auth-form" style="display: none;">
+                <div class="student-options">
+                    <button class="student-option" data-student="nastya">
+                        <img src="nastya-avatar.jpg" alt="Настя">
+                        <span>Настя</span>
+                    </button>
+                    <button class="student-option" data-student="valya">
+                        <img src="valya-avatar.jpg" alt="Валя">
+                        <span>Валя</span>
+                    </button>
+                    <button class="student-option" data-student="artem">
+                        <img src="artem-avatar.jpg" alt="Артем">
+                        <span>Артем</span>
+                    </button>
+                </div>
+                <button class="auth-back" id="back-to-types">Назад</button>
+            </div>
+
+            <!-- Форма входа для учеников -->
+            <div id="student-auth" class="auth-form" style="display: none;">
+                <div class="student-info">
+                    <img id="student-avatar" src="" alt="Аватар">
+                    <h3 id="student-name"></h3>
+                </div>
+                <div class="form-group">
+                    <label for="student-password">Пароль:</label>
+                    <input type="password" id="student-password" class="form-input">
+                </div>
+                <button class="auth-submit" id="student-submit">Войти</button>
+                <button class="auth-back" id="back-to-students">Выбрать другого</button>
+                <div id="student-error" class="error-message"></div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
+
 </body>
 </html>
