@@ -1,3 +1,38 @@
+const usersDatabase = {
+  teacher: {
+    login: "teacher",
+    password: "teacher123",
+    name: "Учитель",
+    role: "teacher",
+  },
+  students: {
+    nastya: {
+      login: "nastya",
+      password: "nastya2024",
+      name: "Настя",
+      role: "student",
+      avatar: "../nastya-avatar.jpg",
+    },
+    valya: {
+      login: "valya",
+      password: "valya2024",
+      name: "Валя",
+      role: "student",
+      avatar: "../valya-avatar.jpg",
+    },
+    artem: {
+      login: "artem",
+      password: "artem2024",
+      name: "Артем",
+      role: "student",
+      avatar: "../artem-avatar.jpg",
+    },
+  },
+};
+
+let currentUser = null;
+let selectedStudent = null;
+
 const testsData = {
   1: [
     {
@@ -761,6 +796,7 @@ let currentTaskIndex = 0;
 let userAnswers = {};
 
 document.addEventListener("DOMContentLoaded", function () {
+  initAuthSystem();
   document.querySelectorAll(".category-section").forEach((section) => {
     section.classList.add("collapsed");
   });
@@ -1212,3 +1248,147 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Остальные обработчики...
 });
+
+function initAuthSystem() {
+  const authModal = document.getElementById("auth-modal");
+  const authButton = document.getElementById("auth-button");
+  const closeAuth = document.querySelector(".close-auth");
+  const typeSelectors = document.querySelectorAll(".type-selector");
+
+  typeSelectors.forEach((selector) => {
+    selector.addEventListener("click", function () {
+      typeSelectors.forEach((s) => s.classList.remove("active"));
+      this.classList.add("active");
+
+      const type = this.dataset.type;
+      document.getElementById("teacher-auth").style.display =
+        type === "teacher" ? "block" : "none";
+      document.getElementById("student-selection").style.display =
+        type === "student" ? "block" : "none";
+      document.getElementById("student-auth").style.display = "none";
+    });
+  });
+
+  document.querySelectorAll(".student-option").forEach((option) => {
+    option.addEventListener("click", function () {
+      selectedStudent = this.dataset.student;
+      const student = usersDatabase.students[selectedStudent];
+
+      document.getElementById("student-selection").style.display = "none";
+      document.getElementById("student-auth").style.display = "block";
+      document.getElementById("student-name").textContent = student.name;
+      document.getElementById("student-avatar").src = student.avatar;
+    });
+  });
+
+  document.getElementById("back-to-types").addEventListener("click", () => {
+    document.getElementById("student-selection").style.display = "none";
+    document.getElementById("teacher-auth").style.display = "block";
+  });
+
+  document.getElementById("back-to-students").addEventListener("click", () => {
+    document.getElementById("student-auth").style.display = "none";
+    document.getElementById("student-selection").style.display = "block";
+  });
+
+  document.getElementById("teacher-submit").addEventListener("click", () => {
+    const login = document.getElementById("teacher-login").value;
+    const password = document.getElementById("teacher-password").value;
+
+    if (
+      login === usersDatabase.teacher.login &&
+      password === usersDatabase.teacher.password
+    ) {
+      currentUser = usersDatabase.teacher;
+      completeAuth();
+    } else {
+      alert("Неверный логин или пароль");
+    }
+  });
+
+  document.getElementById("student-submit").addEventListener("click", () => {
+    const password = document.getElementById("student-password").value;
+    const student = usersDatabase.students[selectedStudent];
+
+    if (password === student.password) {
+      currentUser = student;
+      completeAuth();
+    } else {
+      document.getElementById("student-error").textContent = "Неверный пароль";
+    }
+  });
+
+  authButton.addEventListener("click", () => {
+    authModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+    resetAuthForms();
+  });
+
+  closeAuth.addEventListener("click", closeAuthModal);
+  window.addEventListener("click", (e) => {
+    if (e.target === authModal) closeAuthModal();
+  });
+
+  checkAuthStatus();
+}
+
+function completeAuth() {
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  updateAuthUI();
+  closeAuthModal();
+}
+
+function updateAuthUI() {
+  const authButton = document.getElementById("auth-button");
+  const userContainer = document.createElement("div");
+  userContainer.className = "user-info";
+
+  const userName = document.createElement("span");
+  userName.className = "user-name";
+  userName.textContent = currentUser.name;
+  userContainer.appendChild(userName);
+
+  const logoutButton = document.createElement("button");
+  logoutButton.className = "logout-button";
+  logoutButton.textContent = "Выйти";
+  logoutButton.addEventListener("click", logoutUser);
+  userContainer.appendChild(logoutButton);
+
+  authButton.replaceWith(userContainer);
+}
+
+function logoutUser() {
+  currentUser = null;
+  localStorage.removeItem("currentUser");
+  location.reload();
+}
+
+function checkAuthStatus() {
+  const savedUser = localStorage.getItem("currentUser");
+  if (savedUser) {
+    currentUser = JSON.parse(savedUser);
+    updateAuthUI();
+  }
+}
+
+function closeAuthModal() {
+  document.getElementById("auth-modal").style.display = "none";
+  document.body.style.overflow = "auto";
+  resetAuthForms();
+}
+
+function resetAuthForms() {
+  document.getElementById("teacher-login").value = "";
+  document.getElementById("teacher-password").value = "";
+  document.getElementById("student-password").value = "";
+  document.getElementById("student-error").textContent = "";
+  document.getElementById("teacher-auth").style.display = "block";
+  document.getElementById("student-selection").style.display = "none";
+  document.getElementById("student-auth").style.display = "none";
+  document
+    .querySelector(".type-selector[data-type='teacher']")
+    .classList.add("active");
+  document
+    .querySelector(".type-selector[data-type='student']")
+    .classList.remove("active");
+}
