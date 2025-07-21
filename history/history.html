@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История заданий</title>
+    <link href="../style.css" rel="stylesheet">
+    <link href="history.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Подготовка к <span>ОГЭ МЦКО ВПР ЕГЭ</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html" class="home-link">Главная</a></li>
+                        <li><a href="../index.html#tasks" class="tasks-link">Домашка</a></li>
+                        <li><a href="../theoriya/theory.html" class="theory-link">Теория</a></li>
+                        <li><a href="../testch/test.html" class="tests-link">Тесты</a></li>
+                        <li><a href="history.html" class="history-link active">Статистика</a></li>
+                    </ul>
+                </nav>
+                <div class="user-info" id="user-info">
+                    <span class="user-name"></span>
+                    <button class="logout-button">Выйти</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="history">
+        <div class="container">
+            <h1 class="section-title">История домашних заданий</h1>
+            
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-button active" data-category="Na">Настя</button>
+                    <button class="tab-button" data-category="Va">Валя</button>
+                    <button class="tab-button" data-category="Ar">Артем</button>
+                </div>
+                <div class="tab-content">
+                    <div class="history-list" id="history-list"></div>
+                </div>
+            </div>
+            
+            <div class="stats-container">
+                <h2 class="section-title">Статистика выполнения домашек</h2>
+                <div class="stats-grid">
+                    <div class="stats-card">
+                        <h3>Всего заданий</h3>
+                        <div class="stats-value" id="total-tasks">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <h3>Выполнено</h3>
+                        <div class="stats-value" id="completed-tasks">0</div>
+                    </div>
+                    <div class="stats-card">
+                        <h3>Процент выполнения</h3>
+                        <div class="stats-value" id="completion-percent">0%</div>
+                    </div>
+                </div>
+                <div class="calendar-container" id="calendar"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="history.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

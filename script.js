@@ -228,6 +228,11 @@ function updateAuthUI() {
   const userContainer = document.createElement("div");
   userContainer.className = "user-info";
 
+  const historyLink = document.querySelector(".history-link");
+  if (historyLink) {
+    historyLink.style.display =
+      currentUser.role === "student" ? "block" : "none";
+  }
   const userName = document.createElement("span");
   userName.className = "user-name";
   userName.textContent = currentUser.name;
