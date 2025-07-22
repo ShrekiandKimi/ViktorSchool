@@ -1139,10 +1139,48 @@
                 margin-bottom: 0;
             }
         }
-        .nav-btn.logout-button {
-            background-color: #e74c3c;
+        /* Стили для раздела с решением */
+        .solution-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed #3498db;
         }
 
-        .nav-btn.logout-button:hover {
-            background-color: #c0392b;
+        .solution-title {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .solution-image {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .solution-image img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: zoom-in;
+            transition: transform 0.3s;
+        }
+
+        .solution-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .solution-image img {
+                max-height: 200px;
+            }
+        }
+        .zoomable {
+            cursor: zoom-in;
+            transition: transform 0.3s;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02);
         }

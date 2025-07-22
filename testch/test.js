@@ -717,6 +717,7 @@ const testsData = {
           text: "Это противоположно лежащие равные, уголочки, возникшие при пересечении двух прямых",
         },
       ],
+      solutionImage: "v1z1.png",
       correct: "D",
     },
     {
@@ -787,6 +788,71 @@ const testsData = {
         "Углы 3 и 6, прям как и 4 и 5 являются односторонними углами при двух параллельных прямых и секущей, ЗНАЧИТ в сумме они дают ",
       inputType: true,
       correct: "180",
+    },
+  ],
+  13: [
+    {
+      number: 1,
+      points: 1,
+      image: "v13z1.png",
+      question: "",
+      inputType: true,
+      correct: "72",
+      solutionImage: "v13z1a.png",
+    },
+    {
+      number: 2,
+      points: 1,
+      image: "v13z2.png",
+      question: "",
+      inputType: true,
+      correct: "747",
+      solutionImage: "v13z2a.png",
+    },
+    {
+      number: 3,
+      points: 1,
+      image: "v13z3.png",
+      question: "",
+      inputType: true,
+      correct: "86",
+      solutionImage: "v13z3a.png",
+    },
+    {
+      number: 4,
+      points: 1,
+      image: "v13z4.png",
+      question: "",
+      inputType: true,
+      correct: "61,5",
+      solutionImage: "v13z4a.png",
+    },
+    {
+      number: 5,
+      points: 1,
+      image: "v13z5.png",
+      question: "",
+      inputType: true,
+      correct: "21",
+      solutionImage: "v13z5a.png",
+    },
+    {
+      number: 6,
+      points: 1,
+      image: "v13z6.png",
+      question: "",
+      inputType: true,
+      correct: "118",
+      solutionImage: "v13z6a.png",
+    },
+    {
+      number: 7,
+      points: 1,
+      image: "v13z7.png",
+      question: "",
+      inputType: true,
+      correct: "32",
+      solutionImage: "v13z7a.png",
     },
   ],
 };
@@ -1025,6 +1091,19 @@ function showAnswersDetails(test) {
       imageHtml = `<div class="answer-image"><img src="${task.image}" alt="Задание ${task.number}"></div>`;
     }
 
+    // Добавляем изображение решения, если оно есть и ответ неправильный
+    let solutionHtml = "";
+    if (!isCorrect && task.solutionImage) {
+      solutionHtml = `
+        <div class="solution-section">
+          <h4 class="solution-title">Решение задания:</h4>
+          <div class="solution-image">
+            <img src="${task.solutionImage}" alt="Решение задания ${task.number}" class="zoomable">
+          </div>
+        </div>
+      `;
+    }
+
     const answerComparison = task.inputType
       ? `
         <div class="answer-comparison">
@@ -1063,6 +1142,7 @@ function showAnswersDetails(test) {
       }
       ${imageHtml}
       ${answerComparison}
+      ${solutionHtml}
     `;
 
     answersList.appendChild(answerElement);
@@ -1141,6 +1221,19 @@ function showReviewTasks() {
         .join("");
     }
 
+    // Добавляем изображение решения, если оно есть и ответ неправильный
+    let solutionHtml = "";
+    if (!isCorrect && task.solutionImage) {
+      solutionHtml = `
+        <div class="solution-section">
+          <h4 class="solution-title">Решение задания:</h4>
+          <div class="solution-image">
+            <img src="${task.solutionImage}" alt="Решение задания ${task.number}" class="zoomable">
+          </div>
+        </div>
+      `;
+    }
+
     taskElement.innerHTML = `
       <div class="task-header">
         <div class="task-number">${task.number}</div>
@@ -1174,6 +1267,7 @@ function showReviewTasks() {
             : ""
         }
       </div>
+      ${solutionHtml}
     `;
 
     container.appendChild(taskElement);
@@ -1392,3 +1486,26 @@ function resetAuthForms() {
     .querySelector(".type-selector[data-type='student']")
     .classList.remove("active");
 }
+
+document.addEventListener("click", function (e) {
+  // Обрабатываем клики по изображениям заданий и решений
+  if (
+    e.target.classList.contains("task-image") ||
+    e.target.classList.contains("answer-image") ||
+    e.target.parentElement.classList.contains("answer-image") ||
+    e.target.classList.contains("zoomable") ||
+    e.target.parentElement.classList.contains("solution-image")
+  ) {
+    if (e.target.tagName === "IMG") {
+      modalImage.src = e.target.src;
+    } else if (
+      e.target.classList.contains("answer-image") ||
+      e.target.classList.contains("solution-image")
+    ) {
+      modalImage.src = e.target.querySelector("img").src;
+    }
+
+    imageModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+});
