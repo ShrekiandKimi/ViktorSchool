@@ -1050,6 +1050,71 @@ const testsData = {
       solutionImage: "v16z7a.png",
     },
   ],
+  17: [
+    {
+      number: 1,
+      points: 1,
+      image: "v17z1.png",
+      question: "",
+      inputType: true,
+      correct: "270",
+      solutionImage: "v17z1a.png",
+    },
+    {
+      number: 2,
+      points: 1,
+      image: "v17z2.png",
+      question: "",
+      inputType: true,
+      correct: "0,0000335",
+      solutionImage: "v17z2a.png",
+    },
+    {
+      number: 3,
+      points: 1,
+      image: "v17z3.png",
+      question: "",
+      inputType: true,
+      correct: "-0,05",
+      solutionImage: "v17z3a.png",
+    },
+    {
+      number: 4,
+      points: 1,
+      image: "v17z4.png",
+      question: "",
+      inputType: true,
+      correct: "0,95",
+      solutionImage: "v17z4a.png",
+    },
+    {
+      number: 5,
+      points: 1,
+      image: "v17z5.png",
+      question: "",
+      inputType: true,
+      correct: "-0,5",
+      solutionImage: "v17z5a.png",
+    },
+    {
+      number: 6,
+      points: 1,
+      image: "v17z6.png",
+      question: "",
+      inputType: true,
+      correct: "3,7",
+      solutionImage: "v17z6a.png",
+    },
+    {
+      number: 7,
+      points: 1,
+      image: "v17z7.png",
+      question: "",
+      inputType: true,
+      correct: "0,8",
+      solutionImage: "v17z7a.png",
+    },
+  ],
 };
 
 let currentTest = 0;
@@ -1187,6 +1252,9 @@ function startTest(testNumber) {
   document
     .getElementById("geometry-tasks-container")
     .closest(".category-section").style.display = "none";
+  document
+    .getElementById("algebra-tasks-container")
+    .closest(".category-section").style.display = "none";
   document.getElementById("test-container").style.display = "block";
   document.getElementById("result-container").style.display = "none";
 
@@ -1221,12 +1289,9 @@ function prevTask() {
 
 function returnToMenu() {
   document.getElementById("test-container").style.display = "none";
-  document
-    .getElementById("text-tasks-container")
-    .closest(".category-section").style.display = "block";
-  document
-    .getElementById("geometry-tasks-container")
-    .closest(".category-section").style.display = "block";
+  document.querySelectorAll(".category-section").forEach((section) => {
+    section.style.display = "block"; // Показываем все категории
+  });
 }
 
 function showResults() {
@@ -1346,12 +1411,9 @@ function showAnswersDetails(test) {
 
 function restartTest() {
   document.getElementById("result-container").style.display = "none";
-  document
-    .getElementById("text-tasks-container")
-    .closest(".category-section").style.display = "block";
-  document
-    .getElementById("geometry-tasks-container")
-    .closest(".category-section").style.display = "block";
+  document.querySelectorAll(".category-section").forEach((section) => {
+    section.style.display = "block"; // Показываем все категории
+  });
 }
 
 function reviewAnswers() {
