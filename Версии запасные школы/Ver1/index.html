@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подготовка к ОГЭ по математике</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Подготовка к <span>ОГЭ</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="home-link">Главная</a></li>
+                        <li><a href="#" class="tasks-link">Задания</a></li>
+                        <li><a href="theoriya/theory.html" class="theory-link">Теория</a></li>
+                        <li><a href="testch/test.html" class="tests-link">Тесты</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button id="login-btn">Войти</button>
+                    <button id="register-btn">Регистрация</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container">
+            <h1>Подготовка к ОГЭ по математике</h1>
+            <p>Полный курс подготовки к основному государственному экзамену по математике. Теория, практика, разбор заданий и пробные тесты.</p>
+            <button class="cta-button" id="start-learning">Начать обучение</button>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Наши преимущества</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Полный курс теории</h3>
+                    <p>Все необходимые темы для успешной сдачи экзамена, объясненные простым и понятным языком.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Практические задания</h3>
+                    <p>Большая база заданий с разбором решений и ответами для самостоятельной проверки.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Пробные тесты</h3>
+                    <p>Тесты в формате ОГЭ с автоматической проверкой и анализом ошибок.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Задания -->
+    <section class="tasks">
+        <div class="container">
+            <h2 class="section-title">Задания ОГЭ</h2>
+            <div class="task-categories">
+                <button class="category-button active" data-category="all">Все задания</button>
+                <button class="category-button" data-category="algebra">Алгебра</button>
+                <button class="category-button" data-category="geometry">Геометрия</button>
+                <button class="category-button" data-category="real-math">Реальная математика</button>
+            </div>
+            <div class="task-list" id="task-list">
+                <!-- Задания будут загружены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О проекте</h3>
+                    <p>Сайт для подготовки к ОГЭ по математике. Все материалы соответствуют требованиям ФИПИ.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Разделы</h3>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Задания</a></li>
+                        <li><a href="theoriya/theory.html">Теория</a></li>
+                        <li><a href="testch/test.html">Тесты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><a href="mailto:info@oge-math.ru">viktorivanov06@yandex.ru</a></li>
+                        <li><a href="https://web.telegram.org/k/" target="_blank">tg: @elintniyluxalgoSM</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Подготовка к ОГЭ по математике. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно входа -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Вход в аккаунт</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="submit-button">Войти</button>
+            </form>
+            <div class="form-footer">
+                Нет аккаунта? <a href="#" id="show-register">Зарегистрироваться</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно регистрации -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Регистрация</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Имя</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Пароль</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Подтвердите пароль</label>
+                    <input type="password" id="register-confirm" required>
+                </div>
+                <button type="submit" class="submit-button">Зарегистрироваться</button>
+            </form>
+            <div class="form-footer">
+                Уже есть аккаунт? <a href="#" id="show-login">Войти</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Страница задачи -->
+    <section class="task-page" id="task-page">
+        <div class="container">
+            <div class="task-container">
+                <div class="task-header">
+                    <h2 id="task-title">Задача №1</h2>
+                    <div class="task-difficulty easy" id="task-difficulty">Легкая</div>
+                </div>
+                <div class="task-content" id="task-content">
+                    <p>Текст задачи будет загружен здесь...</p>
+                </div>
+                <div class="solution" id="solution">
+                    <h3>Решение</h3>
+                    <p>Подробное решение задачи будет показано здесь...</p>
+                </div>
+                <div class="task-actions">
+                    <button class="back-button" id="back-button">Назад к заданиям</button>
+                    <button class="solution-button" id="solution-button">Показать решение</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js">
+        
+    </script>
+</body>
+</html>
