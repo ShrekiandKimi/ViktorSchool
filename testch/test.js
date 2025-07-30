@@ -1635,6 +1635,62 @@ const testsData = {
       solutionImage: "v25z7a.png",
     },
   ],
+  26: [
+    {
+      number: 1,
+      points: 1,
+      image: "v26z1.png",
+      question: "",
+      inputType: true,
+      correct: "31,6",
+      solutionImage: "v26z1a.png",
+    },
+    {
+      number: 2,
+      points: 1,
+      image: "v26z2.png",
+      question: "",
+      inputType: true,
+      correct: "0,2",
+      solutionImage: "v26z2a.png",
+    },
+    {
+      number: 3,
+      points: 1,
+      image: "v26z3.png",
+      question: "",
+      inputType: true,
+      correct: "79,2",
+      solutionImage: "v26z3a.png",
+    },
+    {
+      number: 4,
+      points: 1,
+      image: "v26z4.png",
+      question: "",
+      inputType: true,
+      correct: "5",
+      solutionImage: "v26z4a.png",
+    },
+    {
+      number: 5,
+      points: 1,
+      image: "v26z5.png",
+      question: "",
+      inputType: true,
+      correct: "13",
+      solutionImage: "v26z5a.png",
+    },
+    {
+      number: 6,
+      points: 1,
+      image: "v26z6.png",
+      question: "",
+      inputType: true,
+      correct: "1,8",
+      solutionImage: "v26z6a.png",
+    },
+  ],
 };
 
 let currentTest = 0;
@@ -1774,6 +1830,9 @@ function startTest(testNumber) {
     .closest(".category-section").style.display = "none";
   document
     .getElementById("algebra-tasks-container")
+    .closest(".category-section").style.display = "none";
+  document
+    .getElementById("vebinar-tasks-container")
     .closest(".category-section").style.display = "none";
   document.getElementById("test-container").style.display = "block";
   document.getElementById("result-container").style.display = "none";

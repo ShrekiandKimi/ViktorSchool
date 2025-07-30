@@ -26,7 +26,19 @@
             <h2>Выберите категорию тестов</h2>
             <p>Все варианты соответствуют спецификации ОГЭ и включают задания из реальных экзаменов прошлых лет.</p>
             
-          
+            <div class="category-section collapsed">
+                <div class="category-header" onclick="toggleCategory('vebinar-tasks')">
+                    <button class="collapse-btn">▼</button>
+                    <h3>Домашние задания по вебинарам</h3>
+                </div>
+                <div class="variants-container" id="vebinar-tasks-container">
+                    <div class="variant-card">
+                        <h4>ДЗ. по 6 заданию</h4>
+                        <div class="info">Легкая сложность</div>
+                        <a href="#" class="start-btn" onclick="startTest(26); return false;">Начать тест</a>
+                    </div>
+                </div>
+            </div>
             <div class="category-section collapsed">
                 <div class="category-header" onclick="toggleCategory('text-tasks')">
                     <button class="collapse-btn">▼</button>
@@ -89,7 +101,7 @@
                 </div>
             </div>
 
-            <!-- еще одна только алгебра: -->
+           
              <div class="category-section collapsed">
                 <div class="category-header" onclick="toggleCategory('algebra-tasks')">
                     <button class="collapse-btn">▼</button>
