@@ -1,4 +1,3 @@
-// Расширенная база данных заданий с датами выполнения
 const historyTasks = [
   {
     id: 1,
@@ -37,17 +36,14 @@ const historyTasks = [
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Проверка авторизации
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser || currentUser.role !== "student") {
     window.location.href = "../index.html";
     return;
   }
 
-  // Установка имени пользователя
   document.querySelector(".user-name").textContent = currentUser.name;
 
-  // Обработчик выхода
   document
     .querySelector(".logout-button")
     .addEventListener("click", function () {
@@ -55,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "../index.html";
     });
 
-  // Загрузка заданий
   loadHistoryTasks(
     currentUser.name === "Настя"
       ? "Na"
@@ -64,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
       : "Ar"
   );
 
-  // Обработчики вкладок
   document.querySelectorAll(".tab-button").forEach((button) => {
     button.addEventListener("click", function () {
       document
@@ -115,14 +109,12 @@ function loadHistoryTasks(category) {
     historyList.appendChild(taskCard);
   });
 
-  // Обновляем статистику
   const totalTasks = filteredTasks.length;
   const completedTasks = filteredTasks.filter(
     (task) => task.status === "completed"
   ).length;
   updateStats(totalTasks, completedTasks);
 
-  // Обновляем календарь
   updateCalendar(filteredTasks);
 }
 
@@ -141,7 +133,7 @@ function formatDate(dateString) {
 
 function getDueDate(assignedDate) {
   const date = new Date(assignedDate);
-  date.setDate(date.getDate() + 7); // Добавляем 7 дней на выполнение
+  date.setDate(date.getDate() + 7);
   return date.toISOString().split("T")[0];
 }
 

@@ -1810,7 +1810,7 @@ function prevTask() {
 function returnToMenu() {
   document.getElementById("test-container").style.display = "none";
   document.querySelectorAll(".category-section").forEach((section) => {
-    section.style.display = "block"; // Показываем все категории
+    section.style.display = "block";
   });
 }
 
@@ -1871,7 +1871,6 @@ function showAnswersDetails(test) {
       imageHtml = `<div class="answer-image"><img src="${task.image}" alt="Задание ${task.number}"></div>`;
     }
 
-    // Добавляем изображение решения, если оно есть и ответ неправильный
     let solutionHtml = "";
     if (!isCorrect && task.solutionImage) {
       solutionHtml = `
@@ -1932,7 +1931,7 @@ function showAnswersDetails(test) {
 function restartTest() {
   document.getElementById("result-container").style.display = "none";
   document.querySelectorAll(".category-section").forEach((section) => {
-    section.style.display = "block"; // Показываем все категории
+    section.style.display = "block";
   });
 }
 
@@ -1998,7 +1997,6 @@ function showReviewTasks() {
         .join("");
     }
 
-    // Добавляем изображение решения, если оно есть и ответ неправильный
     let solutionHtml = "";
     if (!isCorrect && task.solutionImage) {
       solutionHtml = `
@@ -2108,7 +2106,6 @@ function toggleCategory(categoryId) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Инициализация кнопок
   document.querySelectorAll(".collapse-btn").forEach((btn) => {
     btn.addEventListener("click", function (e) {
       e.stopPropagation();
@@ -2116,8 +2113,6 @@ document.addEventListener("DOMContentLoaded", function () {
       section.classList.toggle("collapsed");
     });
   });
-
-  // Остальные обработчики...
 });
 
 function initAuthSystem() {

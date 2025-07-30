@@ -26,7 +26,7 @@
             <h2>Выберите категорию тестов</h2>
             <p>Все варианты соответствуют спецификации ОГЭ и включают задания из реальных экзаменов прошлых лет.</p>
             
-            <!-- Категория 1: Текстовые задачи -->
+          
             <div class="category-section collapsed">
                 <div class="category-header" onclick="toggleCategory('text-tasks')">
                     <button class="collapse-btn">▼</button>
@@ -144,8 +144,8 @@
                     
                 </div>
             </div>
-            
-            <!-- Категория 2: Геометрия -->
+          
+
             <div class="category-section collapsed">
                 <div class="category-header" onclick="toggleCategory('geometry-tasks')">
                     <button class="collapse-btn">▼</button>
@@ -238,19 +238,19 @@
         <img class="modal-content" id="modal-image">
     </div>
     <script src="test.js"></script>
-<!-- Добавить перед закрывающим тегом body в test.html -->
+
 <div class="auth-modal" id="auth-modal">
     <div class="auth-content">
         <span class="close-auth">&times;</span>
         <h2>Авторизация</h2>
         
-        <!-- Выбор типа пользователя -->
+       
         <div id="user-type-selection">
             <button class="type-selector active" data-type="teacher">Учитель</button>
             <button class="type-selector" data-type="student">Ученики</button>
         </div>
 
-        <!-- Форма для учителя -->
+       
         <div id="teacher-auth" class="auth-form">
             <div class="form-group">
                 <label for="teacher-login">Логин:</label>
@@ -263,7 +263,7 @@
             <button class="auth-submit" id="teacher-submit">Войти</button>
         </div>
 
-        <!-- Выбор ученика -->
+       
         <div id="student-selection" class="auth-form" style="display: none;">
             <div class="student-options">
                 <button class="student-option" data-student="nastya">
@@ -282,7 +282,7 @@
             <button class="auth-back" id="back-to-types">Назад</button>
         </div>
 
-        <!-- Форма входа для учеников -->
+        
         <div id="student-auth" class="auth-form" style="display: none;">
             <div class="student-info">
                 <img id="student-avatar" src="" alt="Аватар">

@@ -84,7 +84,6 @@ const taskTitle = document.getElementById("task-title");
 const taskContent = document.getElementById("task-content");
 const taskDifficulty = document.getElementById("task-difficulty");
 
-// База данных пользователей
 const usersDatabase = {
   teacher: {
     login: "teacher",
@@ -120,15 +119,12 @@ const usersDatabase = {
 let currentUser = null;
 let selectedStudent = null;
 
-// Инициализация авторизации
 function initAuthSystem() {
-  // Получаем все элементы
   const authModal = document.getElementById("auth-modal");
   const authButton = document.getElementById("auth-button");
   const closeAuth = document.querySelector(".close-auth");
   const typeSelectors = document.querySelectorAll(".type-selector");
 
-  // Обработчики для выбора типа пользователя
   typeSelectors.forEach((selector) => {
     selector.addEventListener("click", function () {
       typeSelectors.forEach((s) => s.classList.remove("active"));
@@ -143,7 +139,6 @@ function initAuthSystem() {
     });
   });
 
-  // Обработчик для выбора ученика
   document.querySelectorAll(".student-option").forEach((option) => {
     option.addEventListener("click", function () {
       selectedStudent = this.dataset.student;
@@ -156,7 +151,6 @@ function initAuthSystem() {
     });
   });
 
-  // Обработчики кнопок "Назад"
   document.getElementById("back-to-types").addEventListener("click", () => {
     document.getElementById("student-selection").style.display = "none";
     document.getElementById("teacher-auth").style.display = "block";
@@ -167,7 +161,6 @@ function initAuthSystem() {
     document.getElementById("student-selection").style.display = "block";
   });
 
-  // Обработчик входа для учителя
   document.getElementById("teacher-submit").addEventListener("click", () => {
     const login = document.getElementById("teacher-login").value;
     const password = document.getElementById("teacher-password").value;
@@ -183,7 +176,6 @@ function initAuthSystem() {
     }
   });
 
-  // Обработчик входа для учеников
   document.getElementById("student-submit").addEventListener("click", () => {
     const password = document.getElementById("student-password").value;
     const student = usersDatabase.students[selectedStudent];
@@ -196,33 +188,26 @@ function initAuthSystem() {
     }
   });
 
-  // Открытие модального окна
   authButton.addEventListener("click", () => {
     authModal.style.display = "block";
     document.body.style.overflow = "hidden";
     resetAuthForms();
   });
 
-  // Закрытие модального окна
   closeAuth.addEventListener("click", closeAuthModal);
   window.addEventListener("click", (e) => {
     if (e.target === authModal) closeAuthModal();
   });
 
-  // Проверка авторизации при загрузке
   checkAuthStatus();
 }
 
-// Завершение авторизации
 function completeAuth() {
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
   updateAuthUI();
   closeAuthModal();
-
-  // Можно добавить приветствие
 }
 
-// Обновление интерфейса после авторизации
 function updateAuthUI() {
   const authButton = document.getElementById("auth-button");
   const userContainer = document.createElement("div");
@@ -247,14 +232,12 @@ function updateAuthUI() {
   authButton.replaceWith(userContainer);
 }
 
-// Выход из системы
 function logoutUser() {
   currentUser = null;
   localStorage.removeItem("currentUser");
   location.reload();
 }
 
-// Проверка статуса авторизации
 function checkAuthStatus() {
   const savedUser = localStorage.getItem("currentUser");
   if (savedUser) {
@@ -263,14 +246,12 @@ function checkAuthStatus() {
   }
 }
 
-// Закрытие модального окна
 function closeAuthModal() {
   document.getElementById("auth-modal").style.display = "none";
   document.body.style.overflow = "auto";
   resetAuthForms();
 }
 
-// Сброс форм авторизации
 function resetAuthForms() {
   document.getElementById("teacher-login").value = "";
   document.getElementById("teacher-password").value = "";
@@ -287,7 +268,6 @@ function resetAuthForms() {
     .classList.remove("active");
 }
 
-// Инициализация при загрузке
 document.addEventListener("DOMContentLoaded", initAuthSystem);
 function loadTasks(category = "all") {
   taskList.innerHTML = "";

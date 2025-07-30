@@ -22,7 +22,7 @@ body {
     padding: 0 20px;
 }
 
-/* Шапка */
+
 header {
     background-color: #3498db;
     padding: 1.5rem 0;
@@ -577,7 +577,7 @@ footer {
     }
 }
 
-/* Добавляем в конец style.css */
+
 .image-modal {
     display: none;
     position: fixed;
@@ -627,7 +627,7 @@ footer {
     color: #bbb;
 }
 
-/* Стили для авторизации */
+
 .auth-button {
     background-color: #1abc9c;
     color: white;
@@ -715,7 +715,7 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Адаптивность для мобильных устройств */
+
 @media (max-width: 768px) {
     .header-content {
         flex-wrap: wrap;
@@ -731,7 +731,7 @@ footer {
         margin: 20% auto;
     }
 }
-/* Дополнительные стили для формы авторизации */
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -813,7 +813,7 @@ footer {
     font-weight: bold;
 }
 
-/* Стили для выбора типа пользователя */
+
 .type-selector {
     background: #3498db;
     color: white;
@@ -830,7 +830,7 @@ footer {
     box-shadow: 0 0 10px rgba(26, 188, 156, 0.5);
 }
 
-/* Стили для выбора учеников */
+
 .student-options {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -875,7 +875,7 @@ footer {
     object-fit: cover;
     border: 3px solid #3498db;
 }
-/* Обновленные стили для модального окна */
+
 .auth-modal {
     display: none;
     position: fixed;
@@ -886,13 +886,13 @@ footer {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     animation: fadeIn 0.3s;
-    overflow-y: auto; /* Добавляем возможность прокрутки */
-    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
+    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch; 
 }
 
 .auth-content {
     background-color: white;
-    margin: 20px auto; /* Изменяем margin для мобильных устройств */
+    margin: 20px auto; 
     padding: 30px;
     border-radius: 15px;
     width: 350px;
@@ -900,11 +900,11 @@ footer {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     color: #2c3e50;
     position: relative;
-    max-height: 90vh; /* Ограничиваем максимальную высоту */
-    overflow-y: auto; /* Добавляем прокрутку внутри контента */
+    max-height: 90vh; 
+    overflow-y: auto; 
 }
 
-/* Адаптивные стили для мобильных устройств */
+
 @media (max-width: 480px) {
     .auth-content {
         margin: 10px auto;
@@ -913,7 +913,7 @@ footer {
     }
     
     .student-options {
-        grid-template-columns: 1fr; /* Один столбец на мобильных */
+        grid-template-columns: 1fr; 
     }
     
     .student-option {
@@ -930,14 +930,14 @@ footer {
 }
 
 
-/* Стили для аватарки в форме авторизации */
+
 .student-info {
     text-align: center;
     margin-bottom: 20px;
 }
 
 .student-info img {
-    width: 100px; /* Фиксированный размер */
+    width: 100px; 
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
@@ -952,7 +952,7 @@ footer {
     margin: 0;
 }
 
-/* Адаптация для мобильных */
+
 @media (max-width: 480px) {
     .student-info img {
         width: 80px;
