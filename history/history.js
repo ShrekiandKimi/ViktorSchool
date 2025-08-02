@@ -140,5 +140,5 @@ function getDueDate(assignedDate) {
 function updateCalendar(tasks) {
   const calendar = document.getElementById("calendar");
   calendar.innerHTML =
-    '<h1 class="uaua">Закрытый тгк: https://t.me/+nJasSY9k2l5mZDAy</h1><h3>Ссылки на задания из прошлых домашних заданий:</h3><div class="calendar-grid"></div><h1 class="uaua">https://disk.yandex.ru/d/lRP_Os0lOfszIA</h1>';
+    '<h1 class="uaua">Закрытый тгк: <a href="https://t.me/+nJasSY9k2l5mZDAy">TG</a></h1><h3>Ссылки на задания из прошлых домашних заданий:</h3><div class="calendar-grid"></div><h1 class="uaua"><a href="https://disk.yandex.ru/d/lRP_Os0lOfszIA">YandexCloud</a></h1>';
 }
