@@ -10,12 +10,12 @@ const tasks = [
   },
   {
     id: 2,
-    title: "Задача на отрезок из первой части",
+    title: "Геометрия",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa.png",
     photo: "dzVa.png",
-    solution: "Леготня",
+    solution: "Вспоминай",
   },
   {
     id: 3,
@@ -38,12 +38,12 @@ const tasks = [
 
   {
     id: 5,
-    title: "Задача на теорему Пифагора",
+    title: "Геометрия",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa2.png",
     photo: "dzVa2.png",
-    solution: "easy",
+    solution: "А без подсказок слабо?)",
   },
   {
     id: 6,
@@ -71,6 +71,15 @@ const tasks = [
     thumbnail: "dzNa4.png",
     photo: "dzNa4.png",
     solution: "Иксы влево числа вправо",
+  },
+  {
+    id: 9,
+    title: "И еще геометрия",
+    category: "Va",
+    difficulty: "easy",
+    thumbnail: "dzVa3.png",
+    photo: "dzVa3.png",
+    solution: "не тыкай сюда >_<",
   },
 ];
 const startLearningBtn = document.getElementById("start-learning");
