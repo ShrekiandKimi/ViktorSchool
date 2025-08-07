@@ -19,11 +19,11 @@ const historyTasks = [
 
   {
     id: 5,
-    title: "Задача на теорему Пифагора",
+    title: "Дз по геометрии",
     category: "Va",
-    dateAssigned: "2024-05-15",
+    dateAssigned: "2025-08-07",
     dateCompleted: null,
-    status: "pending",
+    status: "completed",
   },
   {
     id: 6,
