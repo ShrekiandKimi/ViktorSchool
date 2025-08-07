@@ -10,12 +10,13 @@ const tasks = [
   },
   {
     id: 2,
-    title: "Геометрия",
+    title: "Алгебра",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa.png",
     photo: "dzVa.png",
-    solution: "Вспоминай",
+    solution:
+      "если степень четная то число будет положительным всегда ,  а если нечетная то будет отрицательным ( если оно до этого было им )",
   },
   {
     id: 3,
@@ -38,12 +39,12 @@ const tasks = [
 
   {
     id: 5,
-    title: "Геометрия",
+    title: "Алгебра",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa2.png",
     photo: "dzVa2.png",
-    solution: "А без подсказок слабо?)",
+    solution: "Число подбери",
   },
   {
     id: 6,
@@ -79,7 +80,16 @@ const tasks = [
     difficulty: "easy",
     thumbnail: "dzVa3.png",
     photo: "dzVa3.png",
-    solution: "не тыкай сюда >_<",
+    solution: "выносить числа тоже можно",
+  },
+  {
+    id: 10,
+    title: "Преоброзовать",
+    category: "Va",
+    difficulty: "easy",
+    thumbnail: "dzVa4.png",
+    photo: "dzVa4.png",
+    solution: "ФСУ - вспомни формулы сокращенного умножения",
   },
 ];
 const startLearningBtn = document.getElementById("start-learning");
