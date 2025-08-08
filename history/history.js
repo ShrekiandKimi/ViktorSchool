@@ -33,6 +33,14 @@ const historyTasks = [
     dateCompleted: "2024-05-22",
     status: "completed",
   },
+  {
+    id: 7,
+    title: "6-7-8 задачи",
+    category: "Na",
+    dateAssigned: "2025-08-08",
+    dateCompleted: "2025-08-08",
+    status: "pending",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {

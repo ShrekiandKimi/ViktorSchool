@@ -29,12 +29,12 @@ const tasks = [
   },
   {
     id: 4,
-    title: "Без калькулятора пж!",
+    title: "Числовая прямая",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa2.png",
     photo: "dzNa2.png",
-    solution: "",
+    solution: "расставь чиселки на прямой",
   },
 
   {
@@ -57,12 +57,12 @@ const tasks = [
   },
   {
     id: 7,
-    title: "Без калькулятора пж!",
+    title: "Преоброзовать",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa3.png",
     photo: "dzNa3.png",
-    solution: "",
+    solution: "Вспомни фсу",
   },
   {
     id: 8,
