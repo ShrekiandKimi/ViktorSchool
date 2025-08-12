@@ -3,7 +3,9 @@
     background-color: #34495e;
     color: white;
 }
-
+.aaa {
+    text-decoration: none;
+}
 .history-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

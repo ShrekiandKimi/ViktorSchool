@@ -41,6 +41,14 @@ const historyTasks = [
     dateCompleted: "2025-08-08",
     status: "pending",
   },
+  {
+    id: 8,
+    title: "Дз по алгебре",
+    category: "Va",
+    dateAssigned: "2025-08-11",
+    dateCompleted: null,
+    status: "completed",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -148,5 +156,5 @@ function getDueDate(assignedDate) {
 function updateCalendar(tasks) {
   const calendar = document.getElementById("calendar");
   calendar.innerHTML =
-    '<h1 class="uaua">Закрытый тгк: <a href="https://t.me/+nJasSY9k2l5mZDAy">TG</a></h1><h3>Ссылки на задания из прошлых домашних заданий:</h3><div class="calendar-grid"></div><h1 class="uaua"><a href="https://disk.yandex.ru/d/lRP_Os0lOfszIA">YandexCloud</a></h1>';
+    '<h1 class="uaua">Закрытый тгк с вебинарами: <a href="https://t.me/+nJasSY9k2l5mZDAy">TG</a></h1><h3>Ссылки на задания из прошлых домашних заданий:</h3><div class="calendar-grid"></div><h1 class="uaua"><a href="https://disk.yandex.ru/d/lRP_Os0lOfszIA" class="aaa">Предыдущие домашние задания: YandexCloud</a></h1>';
 }
