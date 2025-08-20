@@ -205,7 +205,7 @@ const testsData = {
         { id: "C", text: "2,25" },
         { id: "D", text: "1,75" },
       ],
-      correct: "D",
+      correct: "C",
     },
     {
       number: 5,
