@@ -49,6 +49,22 @@ const historyTasks = [
     dateCompleted: null,
     status: "completed",
   },
+  {
+    id: 9,
+    title: "Дз по по матеше 6 7 8",
+    category: "Na",
+    dateAssigned: "2025-08-19",
+    dateCompleted: null,
+    status: "pending",
+  },
+  {
+    id: 10,
+    title: "Дз по информатике",
+    category: "Na",
+    dateAssigned: "2025-08-19",
+    dateCompleted: null,
+    status: "completed",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
