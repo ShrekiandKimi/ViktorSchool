@@ -1,12 +1,12 @@
 const tasks = [
   {
     id: 1,
-    title: "Информатика",
+    title: "Матеша",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa.png",
     photo: "dzNa.png",
-    solution: "8 бит = 1 байт",
+    solution: "квадрат - само на себя",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const tasks = [
   },
   {
     id: 4,
-    title: "Информатика",
+    title: "Матеша",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa2.png",
@@ -56,20 +56,29 @@ const tasks = [
   },
   {
     id: 7,
-    title: "Информатика",
+    title: "Матеша",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa3.png",
     photo: "dzNa3.png",
-    solution: "",
+    solution: "открой свойства степеней !! не ленись",
   },
   {
     id: 8,
-    title: "Информатика",
+    title: "Матеша",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa4.png",
     photo: "dzNa4.png",
+    solution: "переворачивай",
+  },
+  {
+    id: 15,
+    title: "Информатика",
+    category: "Na",
+    difficulty: "easy",
+    thumbnail: "dzNa5.png",
+    photo: "dzNa5.png",
     solution: "",
   },
   {

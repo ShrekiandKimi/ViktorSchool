@@ -65,6 +65,14 @@ const historyTasks = [
     dateCompleted: null,
     status: "completed",
   },
+  {
+    id: 11,
+    title: "Информатика",
+    category: "Na",
+    dateAssigned: "2025-08-21",
+    dateCompleted: "2025-08-21",
+    status: "completed",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
