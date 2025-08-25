@@ -73,6 +73,30 @@ const historyTasks = [
     dateCompleted: "2025-08-21",
     status: "completed",
   },
+  {
+    id: 13,
+    title: "Информатика",
+    category: "Va",
+    dateAssigned: "2025-08-23",
+    dateCompleted: "2025-08-23",
+    status: "completed",
+  },
+  {
+    id: 12,
+    title: "Математика",
+    category: "Va",
+    dateAssigned: "2025-08-25",
+    dateCompleted: "2025-08-25",
+    status: "pending",
+  },
+  {
+    id: 13,
+    title: "Математика",
+    category: "Va",
+    dateAssigned: "2025-08-20",
+    dateCompleted: "2025-08-20",
+    status: "completed",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {

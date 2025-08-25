@@ -10,7 +10,7 @@ const tasks = [
   },
   {
     id: 2,
-    title: "Информатика",
+    title: "Геометрия",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa.png",
@@ -38,7 +38,7 @@ const tasks = [
 
   {
     id: 5,
-    title: "Информатика",
+    title: "Геометрия",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa2.png",
@@ -83,7 +83,7 @@ const tasks = [
   },
   {
     id: 9,
-    title: "Информатика",
+    title: "Геометрия",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa3.png",
@@ -92,7 +92,7 @@ const tasks = [
   },
   {
     id: 10,
-    title: "Информатика",
+    title: "Геометрия",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa4.png",
@@ -101,38 +101,11 @@ const tasks = [
   },
   {
     id: 11,
-    title: "Информатика",
+    title: "Геометрия",
     category: "Va",
     difficulty: "easy",
     thumbnail: "dzVa5.png",
     photo: "dzVa5.png",
-    solution: "",
-  },
-  {
-    id: 12,
-    title: "Информатика",
-    category: "Va",
-    difficulty: "easy",
-    thumbnail: "dzVa6.png",
-    photo: "dzVa6.png",
-    solution: "делай делай",
-  },
-  {
-    id: 13,
-    title: "Информатика",
-    category: "Va",
-    difficulty: "easy",
-    thumbnail: "dzVa7.png",
-    photo: "dzVa7.png",
-    solution: "",
-  },
-  {
-    id: 14,
-    title: "Информатика",
-    category: "Va",
-    difficulty: "easy",
-    thumbnail: "dzVa8.png",
-    photo: "dzVa8.png",
     solution: "",
   },
 ];
