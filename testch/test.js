@@ -2711,7 +2711,6 @@ function resetAuthForms() {
 }
 
 document.addEventListener("click", function (e) {
-  // Обрабатываем клики по изображениям заданий и решений
   if (
     e.target.classList.contains("task-image") ||
     e.target.classList.contains("answer-image") ||
