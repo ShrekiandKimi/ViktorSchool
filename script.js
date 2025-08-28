@@ -6,7 +6,7 @@ const tasks = [
     difficulty: "easy",
     thumbnail: "dzNa.png",
     photo: "dzNa.png",
-    solution: "квадрат - само на себя",
+    solution: "",
   },
   {
     id: 2,
@@ -61,7 +61,7 @@ const tasks = [
     difficulty: "easy",
     thumbnail: "dzNa3.png",
     photo: "dzNa3.png",
-    solution: "открой свойства степеней !! не ленись",
+    solution: "",
   },
   {
     id: 8,
@@ -70,11 +70,11 @@ const tasks = [
     difficulty: "easy",
     thumbnail: "dzNa4.png",
     photo: "dzNa4.png",
-    solution: "переворачивай",
+    solution: "",
   },
   {
     id: 15,
-    title: "Информатика",
+    title: "Матеша",
     category: "Na",
     difficulty: "easy",
     thumbnail: "dzNa5.png",

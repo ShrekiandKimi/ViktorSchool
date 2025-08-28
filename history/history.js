@@ -97,6 +97,22 @@ const historyTasks = [
     dateCompleted: "2025-08-20",
     status: "completed",
   },
+  {
+    id: 14,
+    title: "Математика",
+    category: "Na",
+    dateAssigned: "2025-08-28",
+    dateCompleted: "2025-08-28",
+    status: "completed",
+  },
+  {
+    id: 15,
+    title: "Математика",
+    category: "Va",
+    dateAssigned: "2025-08-28",
+    dateCompleted: "2025-08-28",
+    status: "completed",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
