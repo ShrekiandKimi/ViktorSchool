@@ -22,8 +22,8 @@ const usersDatabase = {
     },
     artem: {
       login: "artem",
-      password: "artem2024",
-      name: "Артем",
+      password: "bogdan",
+      name: "Богдан",
       role: "student",
       avatar: "../artem-avatar.jpg",
     },

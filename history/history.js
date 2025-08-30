@@ -9,15 +9,6 @@ const historyTasks = [
   },
 
   {
-    id: 3,
-    title: "Задача на движение",
-    category: "Ar",
-    dateAssigned: "2024-05-03",
-    dateCompleted: null,
-    status: "pending",
-  },
-
-  {
     id: 5,
     title: "Дз по геометрии",
     category: "Va",
@@ -27,10 +18,10 @@ const historyTasks = [
   },
   {
     id: 6,
-    title: "Задача на вероятность",
+    title: "Домашняя работа",
     category: "Ar",
-    dateAssigned: "2024-05-20",
-    dateCompleted: "2024-05-22",
+    dateAssigned: "2025-09-6",
+    dateCompleted: "2025-09-6",
     status: "completed",
   },
   {
